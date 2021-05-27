@@ -1,0 +1,348 @@
+@import "./values";
+
+%flexbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+*,
+*::after,
+*::before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+body,
+button,
+a {
+    font-weight: map-get($map: $font-weight, $key: light);
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    padding: 1.5rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.company-logo-link {
+    padding-top: 10px;
+}
+
+.nav {
+    display: none;
+    z-index: 2;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: map-get($map: $primary, $key: dark-violet);
+    color: map-get($map: $primary, $key: white-color);
+    margin: 0rem 1.5rem;
+    border-radius: 0.5rem;
+    padding: 2rem 1.5rem;
+}
+
+.container-nav-items,
+.footer-nav-items,
+.footer-social-media-items {
+    list-style-type: none;
+    margin: 0;
+    padding-bottom: 1rem;
+    padding-inline-start: 0;
+    @extend %flexbox;
+    flex-direction: column;
+}
+
+.nav-item,
+.side-nav-btn {
+    margin: 0.4rem 0rem;
+    padding: 0.6rem 0rem;
+    @extend %flexbox;
+    width: 100%;
+    font-weight: map-get($map: $font-weight, $key: heavy);
+}
+
+.side-nav-items {
+    @extend %flexbox;
+    flex-direction: column;
+    padding-top: 1rem;
+    position: relative;
+}
+
+.main-btn,
+.main-btn-opposed {
+    color: map-get($map: $primary, $key: white-color);
+    padding: 0.9rem 0rem;
+    font-weight: map-get($map: $font-weight, $key: heavy);
+}
+
+.main-btn {
+    border-radius: 3rem;
+    background-color: map-get($map: $primary, $key: cyan-color);
+}
+
+.side-nav-items::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 1px;
+    width: 100%;
+    background-color: map-get($map: $netral, $key: grayish-violet);
+    opacity: 0.25;
+}
+
+button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    @extend %flexbox;
+    padding: 0;
+}
+
+button:focus {
+    outline: #fff dotted 3px;
+}
+
+.intro {
+    padding: 0 0 4rem 0;
+}
+
+.illustration-intro {
+    position: relative;
+    overflow: hidden;
+    top: 0;
+    margin-left: 1.5rem;
+}
+
+.illustration-intro img {
+    width: 145%;
+}
+
+.info-description-cnt {
+    padding: 0rem 1.5rem;
+    @extend %flexbox;
+    flex-direction: column;
+}
+
+.info-title,
+.advanced-statistic-title,
+.statistics-card-title,
+.summary-title,
+.footer-nav-title {
+    color: map-get($map: $netral, $key: very-dark-blue);
+    font-weight: map-get($map: $font-weight, $key: heavy);
+    text-align: center;
+}
+
+.info-description,
+.advanced-statistic-description,
+.statistics-card-description {
+    text-align: center;
+    color: map-get($map: $netral, $key: grayish-violet);
+}
+
+.info-title {
+    font-size: 2.6rem;
+    line-height: 3rem;
+    margin-bottom: 1rem;
+}
+
+.info-description {
+    margin: 0 0 2rem 0;
+}
+
+.get-started-btn {
+    padding-left: 2.7rem;
+    padding-right: 2.7rem;
+    font-size: 1.2rem;
+}
+
+.shorten-link {
+    z-index: 1;
+    padding: 1.5rem;
+    background-color: map-get($map: $netral, $key: gray-blue);
+    position: relative;
+}
+
+.shorten-link::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    height: 50%;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: map-get($map: $primary, $key: white-color);
+}
+
+.shorten-link-cnt {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: map-get($map: $primary, $key: dark-violet);
+    background-image: url(./images/bg-shorten-mobile.svg);
+    background-position: top right;
+    background-repeat: no-repeat;
+    border-radius: 0.7rem;
+}
+
+.shorten-link-input-group {
+    width: 100%;
+}
+
+.shorten-link-label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+#shorten-link-input-field {
+    width: 100%;
+    border: 3px solid map-get($map: $primary, $key: white-color);
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    padding: 0.7rem 0.8rem;
+    outline: none;
+}
+
+#shorten-link-input-field::placeholder {
+    font-family: "Poppins", sans-serif;
+    color: map-get($map: $netral, $key: very-dark-blue);
+    opacity: 0.5;
+}
+
+.shorten-link-btn {
+    width: 100%;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    font-family: Arial;
+}
+
+.advanced-statistics {
+    background-color: map-get($map: $netral, $key: gray-blue);
+    padding: 1.5rem;
+}
+
+.advanced-statistic-title {
+    font-size: 1.7rem;
+    padding-top: 1rem;
+}
+
+.advanced-statistic-description {
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.statistics-card {
+    position: relative;
+    @extend %flexbox;
+    flex-direction: column;
+    background-color: map-get($map: $primary, $key: white-color);
+    margin: 5.5rem 0rem;
+    padding: 1.7rem;
+}
+
+.statistics-card:last-child {
+    margin-bottom: 3rem;
+}
+
+.statistics-card-icon {
+    position: absolute;
+    background-color: map-get($map: $primary, $key: dark-violet);
+    width: 5.4rem;
+    height: 5.4rem;
+    border-radius: 50%;
+    top: -2.7rem;
+    @extend %flexbox;
+}
+
+.statistics-card:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    background-color: map-get($map: $primary, $key: cyan-color);
+    width: 0.5rem;
+    height: 5.5rem;
+    top: 100%;
+}
+
+.statistics-card-title {
+    margin: 0;
+    padding-top: 3.5rem;
+}
+
+.statistics-card-description {
+    font-size: 0.95rem;
+    line-height: 1.6rem;
+}
+
+.summary {
+    padding: 4.9rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: map-get($map: $primary, $key: dark-violet);
+    background-image: url(./images/bg-boost-mobile.svg);
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+
+.footer {
+    padding: 3rem 1.5rem;
+    @extend %flexbox;
+    flex-direction: column;
+    background-color: map-get($map: $netral, $key: very-dark-violet);
+}
+
+.footer-nav {
+    padding: 2rem 0rem;
+}
+
+.summary-title,
+.footer-nav-title {
+    color: map-get($map: $primary, $key: white-color);
+}
+
+.footer-nav-title {
+    font-size: 1rem;
+    margin: 1rem 0;
+}
+
+.footer-nav-item {
+    margin: 0.2rem 0rem;
+}
+
+.footer-nav-item a {
+    color: map-get($map: $netral, $key: gray-color);
+    font-size: 0.9rem;
+}
+
+.footer-social-media-items {
+    flex-direction: row;
+    padding-bottom: 0rem;
+}
+
+.footer-social-media-item {
+    margin: 0 0.8rem;
+}

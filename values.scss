@@ -1,0 +1,27 @@
+$layout: (
+    "mobile": 375px,
+    "desktop": 1440px,
+);
+
+$primary: (
+    "white-color": #ffffff,
+    "cyan-color": hsl(180, 66%, 49%),
+    "dark-violet": hsl(257, 27%, 26%),
+);
+
+$secondary: (
+    "red": hsl(0, 87%, 67%),
+);
+
+$netral: (
+    "gray-blue": hsl(225, 31%, 95%),
+    "gray-color": hsl(0, 0%, 75%),
+    "grayish-violet": hsl(257, 7%, 63%),
+    "very-dark-blue": hsl(255, 11%, 22%),
+    "very-dark-violet": hsl(260, 8%, 14%),
+);
+
+$font-weight: (
+    "light": 500,
+    "heavy": 700,
+);
