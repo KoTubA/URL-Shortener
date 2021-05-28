@@ -1,4 +1,4 @@
-@import "./values";
+@import "./_values";
 
 %flexbox {
     display: flex;
@@ -29,16 +29,29 @@ a {
     text-decoration: none;
 }
 
+.header,
+.intro,
+.shorten-link,
+.advanced-statistics,
+.summary,
+.footer {
+    @extend %flexbox;
+}
+
 .header {
     padding: 1.5rem;
+}
+
+.header-cnt {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex: 1 1 100%;
 }
 
 .company-logo-link {
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 .nav {
@@ -55,6 +68,13 @@ a {
     padding: 2rem 1.5rem;
 }
 
+.nav-active {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1 1 100%;
+}
+
 .container-nav-items,
 .footer-nav-items,
 .footer-social-media-items {
@@ -66,13 +86,17 @@ a {
     flex-direction: column;
 }
 
-.nav-item,
+.nav-item a,
 .side-nav-btn {
     margin: 0.4rem 0rem;
     padding: 0.6rem 0rem;
     @extend %flexbox;
     width: 100%;
     font-weight: map-get($map: $font-weight, $key: heavy);
+}
+
+.nav-item a {
+    color: map-get($map: $primary, $key: white-color);
 }
 
 .side-nav-items {
@@ -87,6 +111,7 @@ a {
     color: map-get($map: $primary, $key: white-color);
     padding: 0.9rem 0rem;
     font-weight: map-get($map: $font-weight, $key: heavy);
+    min-width: fit-content;
 }
 
 .main-btn {
@@ -100,7 +125,7 @@ a {
     top: 0;
     height: 1px;
     width: 100%;
-    background-color: map-get($map: $netral, $key: grayish-violet);
+    background-color: map-get($map: $neutral, $key: grayish-violet);
     opacity: 0.25;
 }
 
@@ -113,23 +138,57 @@ button {
     padding: 0;
 }
 
+a:focus,
 button:focus {
-    outline: #fff dotted 3px;
+    outline: map-get($map: $primary, $key: cyan-color) dotted 3px;
+}
+
+.main-btn-opposed:hover,
+.nav-item a:hover,
+.side-nav-btn:first-child:hover {
+    color: map-get($map: $neutral, $key: very-dark-blue);
+}
+
+.footer-nav-item a:hover {
+    color: map-get($map: $primary, $key: cyan-color);
+}
+
+.main-btn:hover {
+    background-color: map-get($map: $neutral, $key: light-cyan);
+}
+
+.main {
+    overflow: hidden;
 }
 
 .intro {
     padding: 0 0 4rem 0;
+    position: relative;
+}
+
+.intro-cnt,
+.shorten-link-cnt,
+.advanced-statistics-cnt,
+.summary-cnt,
+.footer-cnt {
+    @extend %flexbox;
+    flex-direction: column;
+    flex: 1 1 100%;
+}
+
+.intro-cnt {
+    align-items: flex-start;
+    overflow: hidden;
+    padding-bottom: 3px;
 }
 
 .illustration-intro {
     position: relative;
-    overflow: hidden;
-    top: 0;
     margin-left: 1.5rem;
 }
 
 .illustration-intro img {
-    width: 145%;
+    width: 32rem;
 }
 
 .info-description-cnt {
@@ -143,7 +202,7 @@ button:focus {
 .statistics-card-title,
 .summary-title,
 .footer-nav-title {
-    color: map-get($map: $netral, $key: very-dark-blue);
+    color: map-get($map: $neutral, $key: very-dark-blue);
     font-weight: map-get($map: $font-weight, $key: heavy);
     text-align: center;
 }
@@ -152,17 +211,18 @@ button:focus {
 .advanced-statistic-description,
 .statistics-card-description {
     text-align: center;
-    color: map-get($map: $netral, $key: grayish-violet);
+    color: map-get($map: $neutral, $key: grayish-violet);
 }
 
 .info-title {
     font-size: 2.6rem;
-    line-height: 3rem;
+    line-height: 1.15;
     margin-bottom: 1rem;
 }
 
 .info-description {
     margin: 0 0 2rem 0;
+    line-height: 1.75;
 }
 
 .get-started-btn {
@@ -174,7 +234,7 @@ button:focus {
 .shorten-link {
     z-index: 1;
     padding: 1.5rem;
-    background-color: map-get($map: $netral, $key: gray-blue);
+    background-color: map-get($map: $neutral, $key: gray-blue);
     position: relative;
 }
 
@@ -191,10 +251,6 @@ button:focus {
 
 .shorten-link-cnt {
     padding: 1.5rem;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
     background-color: map-get($map: $primary, $key: dark-violet);
     background-image: url(./images/bg-shorten-mobile.svg);
     background-position: top right;
@@ -220,7 +276,7 @@ button:focus {
 #shorten-link-input-field {
     width: 100%;
     border: 3px solid map-get($map: $primary, $key: white-color);
-    border-radius: 0.2rem;
+    border-radius: 0.6rem;
     font-size: 1rem;
     padding: 0.7rem 0.8rem;
     outline: none;
@@ -228,7 +284,7 @@ button:focus {
 
 #shorten-link-input-field::placeholder {
     font-family: "Poppins", sans-serif;
-    color: map-get($map: $netral, $key: very-dark-blue);
+    color: map-get($map: $neutral, $key: very-dark-blue);
     opacity: 0.5;
 }
 
@@ -240,18 +296,41 @@ button:focus {
 }
 
 .advanced-statistics {
-    background-color: map-get($map: $netral, $key: gray-blue);
+    background-color: map-get($map: $neutral, $key: gray-blue);
     padding: 1.5rem;
 }
 
 .advanced-statistic-title {
     font-size: 1.7rem;
     padding-top: 1rem;
+    margin-block-end: 0.5em;
 }
 
 .advanced-statistic-description {
     font-size: 1rem;
     line-height: 1.75;
+    max-width: 32rem;
+    margin-block-start: 0em;
+}
+
+.statistics-cards {
+    max-width: 43rem;
+    width: 100%;
+    position: relative;
+    @extend %flexbox;
+    flex-direction: column;
+    z-index: 1;
+    margin: 5rem 0rem 3.5rem 0rem;
+}
+
+.statistics-cards::after {
+    content: "";
+    position: absolute;
+    background-color: map-get($map: $primary, $key: cyan-color);
+    width: 0.5rem;
+    height: 100%;
+    top: 0;
+    z-index: -1;
 }
 
 .statistics-card {
@@ -259,12 +338,18 @@ button:focus {
     @extend %flexbox;
     flex-direction: column;
     background-color: map-get($map: $primary, $key: white-color);
-    margin: 5.5rem 0rem;
-    padding: 1.7rem;
+    margin: 3rem 0rem;
+    padding: 1.9rem;
+    max-width: 22rem;
+    border-radius: 0.3rem;
+}
+
+.statistics-card:first-child {
+    margin-top: 0rem;
 }
 
 .statistics-card:last-child {
-    margin-bottom: 3rem;
+    margin-bottom: 0rem;
 }
 
 .statistics-card-icon {
@@ -277,18 +362,10 @@ button:focus {
     @extend %flexbox;
 }
 
-.statistics-card:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    background-color: map-get($map: $primary, $key: cyan-color);
-    width: 0.5rem;
-    height: 5.5rem;
-    top: 100%;
-}
-
 .statistics-card-title {
     margin: 0;
-    padding-top: 3.5rem;
+    padding-top: 2.6rem;
+    font-size: 1.4rem;
 }
 
 .statistics-card-description {
@@ -298,10 +375,7 @@ button:focus {
 
 .summary {
     padding: 4.9rem 1.5rem;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    @extend %flexbox;
     background-color: map-get($map: $primary, $key: dark-violet);
     background-image: url(./images/bg-boost-mobile.svg);
     background-position: top right;
@@ -310,18 +384,22 @@ button:focus {
 
 .footer {
     padding: 3rem 1.5rem;
-    @extend %flexbox;
-    flex-direction: column;
-    background-color: map-get($map: $netral, $key: very-dark-violet);
+    background-color: map-get($map: $neutral, $key: very-dark-violet);
 }
 
 .footer-nav {
+    @extend %flexbox;
+    flex-direction: column;
     padding: 2rem 0rem;
 }
 
 .summary-title,
 .footer-nav-title {
     color: map-get($map: $primary, $key: white-color);
+}
+
+.summary-title {
+    margin-block-start: 0;
 }
 
 .footer-nav-title {
@@ -334,7 +412,7 @@ button:focus {
 }
 
 .footer-nav-item a {
-    color: map-get($map: $netral, $key: gray-color);
+    color: map-get($map: $neutral, $key: gray-color);
     font-size: 0.9rem;
 }
 
@@ -346,3 +424,9 @@ button:focus {
 .footer-social-media-item {
     margin: 0 0.8rem;
 }
+
+.footer-social-media-item a:hover svg path {
+    fill: map-get($map: $primary, $key: cyan-color);
+}
+
+@import "./_media";
