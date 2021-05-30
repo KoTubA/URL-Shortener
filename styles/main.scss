@@ -519,9 +519,8 @@ button:focus {
 }
 
 .password-tip-items {
-    columns: 2;
-    -webkit-columns: 2;
-    -moz-columns: 2;
+    display: flex;
+    flex-wrap: wrap;
     padding-inline-start: 15px;
     color: map-get($map: $neutral, $key: dark-blue);
     font-size: 0.8rem;
@@ -529,6 +528,7 @@ button:focus {
 
 .password-tip-item {
     margin: 0.3rem 0rem;
+    flex: 1 1 50%;
 }
 
 .terms-and-conditions {
