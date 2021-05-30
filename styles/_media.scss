@@ -5,6 +5,10 @@
         justify-content: center;
         align-items: center;
     }
+
+    .form-title {
+        font-size: 1.8rem;
+    }
 }
 
 @media (min-width: 600px) {
@@ -23,6 +27,7 @@
     .shorten-link,
     .advanced-statistics,
     .summary,
+    .form,
     .footer {
         padding-left: 2rem;
         padding-right: 2rem;
@@ -169,11 +174,11 @@
     }
 
     .shorten-link-cnt {
-        background-image: url(./images/bg-shorten-desktop.svg);
+        background-image: url(../images/bg-shorten-desktop.svg);
     }
 
     .summary {
-        background-image: url(./images/bg-boost-desktop.svg);
+        background-image: url(../images/bg-boost-desktop.svg);
         padding-top: 3.3rem;
         padding-bottom: 3.3rem;
     }
@@ -200,6 +205,7 @@
     .shorten-link,
     .advanced-statistics,
     .summary,
+    .form,
     .footer {
         padding-left: 4rem;
         padding-right: 4rem;
@@ -259,6 +265,7 @@
     .shorten-link,
     .advanced-statistics,
     .summary,
+    .form,
     .footer {
         padding-left: 5rem;
         padding-right: 5rem;
@@ -358,6 +365,7 @@
     .shorten-link,
     .advanced-statistics,
     .summary,
+    .form,
     .footer {
         padding-left: 0rem;
         padding-right: 0rem;
@@ -368,7 +376,8 @@
     .shorten-link-cnt,
     .advanced-statistics-cnt,
     .summary-cnt,
-    .footer-cnt {
+    .footer-cnt,
+    .form-cnt {
         max-width: 1110px;
     }
 
