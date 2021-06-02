@@ -1,3 +1,11 @@
+@use '../abstracts/colors' as *;
+
+@media (min-width: 500px) {
+    .illustration-intro-smaller {
+        width: 80%;
+    }
+}
+
 @media (min-width: 575px) {
     .illustration-intro {
         margin-right: 1.5rem;
@@ -28,7 +36,8 @@
     .advanced-statistics,
     .summary,
     .form,
-    .footer {
+    .footer,
+    .pricing {
         padding-left: 2rem;
         padding-right: 2rem;
     }
@@ -80,6 +89,11 @@
         padding-top: 1.5rem;
     }
 
+    .intro-smaller {
+        padding-bottom: 4rem;
+        padding-top: 2rem;
+    }
+
     .info-title,
     .info-description {
         text-align: left;
@@ -93,6 +107,7 @@
     .illustration-intro {
         width: 45%;
     }
+
     .info-description-cnt {
         width: 55%;
     }
@@ -183,20 +198,81 @@
         padding-bottom: 3.3rem;
     }
 
-    .advanced-statistic-title {
+    .advanced-statistics-title {
         font-size: 2.3rem;
     }
 
-    .advanced-statistic-description {
+    .advanced-statistics-description {
         font-size: 1.1rem;
     }
 
-    .summary-title {
+    .summary-title,
+    .compare-title {
         font-size: 2.3rem;
     }
 
     .info-title {
         font-size: 3rem;
+    }
+
+    .info-title-smaller {
+        font-size: 2.5rem;
+    }
+
+    .pricing-card {
+        max-width: 42.5rem;
+        grid-template-columns: 55% auto;
+        grid-template-rows: repeat(3, auto);
+        justify-items: start;
+    }
+
+    .pricing-switch-cost-cnt {
+        grid-area: 1/2/-1/-1;
+        justify-self: flex-end;
+        align-self: start;
+    }
+
+    .pricing-cost-description {
+        text-align: left;
+    }
+
+    .compare-table {
+        grid-template-rows: auto;
+        grid-auto-rows: 64px;
+    }
+
+    .comapre-table-row-header .comapre-table-data {
+        display: flex;
+    }
+
+    .comapre-table-row-header .comapre-table-features {
+        padding-bottom: 0rem;
+    }
+
+    .comapre-table-row-header {
+        padding-bottom: 1rem;
+    }
+
+    .comapre-table-row {
+        grid-template-columns: auto 140px 140px 140px;
+        grid-template-rows: auto;
+    }
+
+    .comapre-table-data-basic,
+    .comapre-table-data-premium,
+    .comapre-table-data-enterpise {
+        padding: 0rem;
+        margin-top: 0rem;
+    }
+
+    .comapre-table-data-basic::before,
+    .comapre-table-data-premium::before,
+    .comapre-table-data-enterpise::before {
+        display: none;
+    }
+
+    .comapre-table-features {
+        grid-column: auto;
     }
 }
 
@@ -206,7 +282,8 @@
     .advanced-statistics,
     .summary,
     .form,
-    .footer {
+    .footer,
+    .pricing {
         padding-left: 4rem;
         padding-right: 4rem;
     }
@@ -242,11 +319,12 @@
         margin: 0 2rem;
     }
 
-    .advanced-statistic-title {
+    .advanced-statistics-title {
         font-size: 2.4rem;
     }
 
-    .summary-title {
+    .summary-title,
+    .compare-title {
         font-size: 2.5rem;
     }
 
@@ -258,6 +336,10 @@
     .info-title {
         font-size: 3.4rem;
     }
+
+    .info-title-smaller {
+        font-size: 3rem;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -266,7 +348,8 @@
     .advanced-statistics,
     .summary,
     .form,
-    .footer {
+    .footer,
+    .pricing {
         padding-left: 5rem;
         padding-right: 5rem;
     }
@@ -276,8 +359,8 @@
         padding-bottom: 10rem;
     }
 
-    .info-title {
-        font-size: 3.4rem;
+    .intro-smaller {
+        padding-bottom: 6rem;
     }
 
     .info-description {
@@ -305,6 +388,11 @@
         font-size: 3.5rem;
     }
 
+    .info-title-smaller {
+        margin-bottom: 1rem;
+        font-size: 3rem;
+    }
+
     .shorten-link-cnt {
         padding: 2rem;
     }
@@ -313,15 +401,14 @@
         width: 15rem;
     }
 
-    .advanced-statistic-title {
+    .advanced-statistics-title {
         margin: 0 0 0.7rem 0;
         padding-top: 4.5rem;
     }
-}
 
-@media (min-wdth: 1200px) {
-    .info-description-cnt {
-        padding-right: 10rem;
+    .comapre-table-row {
+        grid-template-columns: auto 200px 200px 200px;
+        grid-template-rows: auto;
     }
 }
 
@@ -366,7 +453,8 @@
     .advanced-statistics,
     .summary,
     .form,
-    .footer {
+    .footer,
+    .pricing {
         padding-left: 0rem;
         padding-right: 0rem;
     }
@@ -377,7 +465,8 @@
     .advanced-statistics-cnt,
     .summary-cnt,
     .footer-cnt,
-    .form-cnt {
+    .form-cnt,
+    .pricing-cnt {
         max-width: 1110px;
     }
 
@@ -399,6 +488,10 @@
         font-size: 4.8rem;
     }
 
+    .info-title-smaller {
+        font-size: 3.9rem;
+    }
+
     .info-description {
         font-size: 1.4rem;
     }
@@ -414,6 +507,10 @@
     .illustration-intro {
         left: 57.5%;
         width: 46rem;
+    }
+
+    .illustration-intro-smaller {
+        left: 52.5%;
     }
 
     #shorten-link-input-field {
@@ -453,6 +550,42 @@
     .footer-nav-items-wrapper {
         margin: 0 3rem;
     }
-}
 
-//360,375,414,600,768,800,1280,1366,1440,1536,1920
+    .pricing-cards {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .pricing-card {
+        max-width: 22.5rem;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        justify-items: center;
+    }
+
+    .pricing-switch-cost-cnt {
+        grid-area: auto;
+        justify-self: auto;
+        align-self: auto;
+    }
+
+    .pricing-cost-description {
+        text-align: center;
+    }
+
+    .pricing-card {
+        margin: 2rem 1rem;
+    }
+
+    .pricing-card:first-child {
+        margin-left: 0;
+    }
+
+    .pricing-card:nth-child(2) {
+        padding: 4rem 3rem;
+    }
+
+    .pricing-card:last-child {
+        margin-right: 0;
+    }
+}

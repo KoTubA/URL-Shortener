@@ -1,0 +1,75 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/values' as *;
+@use '../base/extends' as *;
+
+.footer {
+    @extend %flexbox;
+}
+
+.footer-nav-items,
+.footer-social-media-items {
+    @extend %nav;
+}
+
+.footer-nav-item a {
+    transition: color 0.15s ease-in-out;
+}
+
+.footer-social-media-item a svg path {
+    transition: fill 0.15s ease-in-out;
+}
+
+.footer-nav-item a:hover {
+    color: map-get($map: $primary, $key: cyan-color);
+}
+
+.main-btn:hover {
+    background-color: map-get($map: $neutral, $key: light-cyan);
+}
+
+.footer-cnt {
+    @extend %flexbox;
+    flex-direction: column;
+    flex: 1 1 100%;
+}
+
+.footer-nav-title {
+    color: map-get($map: $primary, $key: white-color);
+    font-weight: map-get($map: $font-weight, $key: heavy);
+    text-align: center;
+    font-size: 1rem;
+    margin: 1rem 0;
+}
+
+.footer {
+    padding: 3rem 1.5rem;
+    background-color: map-get($map: $neutral, $key: very-dark-violet);
+}
+
+.footer-nav {
+    @extend %flexbox;
+    flex-direction: column;
+    padding: 2rem 0rem;
+}
+
+.footer-nav-item {
+    margin: 0.2rem 0rem;
+}
+
+.footer-nav-item a {
+    color: map-get($map: $neutral, $key: gray-color);
+    font-size: 0.9rem;
+}
+
+.footer-social-media-items {
+    flex-direction: row;
+    padding-bottom: 0rem;
+}
+
+.footer-social-media-item {
+    margin: 0 0.8rem;
+}
+
+.footer-social-media-item a:hover svg path {
+    fill: map-get($map: $primary, $key: cyan-color);
+}

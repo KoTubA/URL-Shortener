@@ -1,0 +1,9 @@
+@use '../abstracts/values' as *;
+
+body,
+button,
+a {
+    font-weight: map-get($map: $font-weight, $key: light);
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+}

@@ -1,0 +1,108 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/values' as *;
+@use '../base/extends' as *;
+@use '../base/minix' as *;
+
+.form {
+    padding: 0rem 1.5rem;
+    @extend %flexbox;
+}
+
+.form-cnt {
+    border-top: 1px solid map-get($map: $neutral, $key: gray-blue);
+    padding-bottom: 3px;
+    @extend %flexbox;
+    flex-direction: column;
+    flex: 1 1 100%;
+}
+
+.form-system {
+    width: 100%;
+    max-width: 450px;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.form-control {
+    @extend %flexbox;
+    flex: 1 1 100%;
+    border: 1px solid map-get($map: $neutral, $key: grayish-violet);
+    border-radius: 0.2rem;
+    padding: 0.7rem 0.8rem;
+    outline: none;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    border: 1px solid map-get($map: $primary, $key: cyan-color);
+    box-shadow: 0 0 0 0.2rem map-get($map: $primary, $key: cyan-shadow);
+}
+
+.form-label {
+    color: map-get($map: $neutral, $key: dark-blue);
+    font-weight: map-get($map: $font-weight, $key: lighter);
+    padding: 1.5rem 0rem 0.5rem 0rem;
+    font-size: 1rem;
+}
+
+.form-link {
+    align-self: flex-end;
+    margin: 1rem 0rem 1.5rem 0rem;
+    font-weight: map-get($map: $font-weight, $key: lighter);
+}
+
+.form-btn {
+    border-radius: 0.2rem;
+    font-size: inherit;
+}
+
+.form-system {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1 1 100%;
+}
+
+.form-title {
+    @include title;
+    padding-top: 4rem;
+    margin-block-end: 0.5em;
+    font-size: 1.7rem;
+}
+
+.form-description {
+    @extend %description;
+    color: map-get($map: $neutral, $key: dark-blue);
+    font-size: 1rem;
+    margin-block-start: 0em;
+    font-weight: map-get($map: $font-weight, $key: lighter);
+}
+
+.password-tip-items {
+    display: flex;
+    flex-wrap: wrap;
+    padding-inline-start: 15px;
+    color: map-get($map: $neutral, $key: dark-blue);
+    font-weight: map-get($map: $font-weight, $key: lighter);
+    font-size: 0.8rem;
+}
+
+.password-tip-item {
+    margin: 0rem;
+    flex: 1 1 50%;
+}
+
+.terms-and-conditions {
+    color: map-get($map: $neutral, $key: dark-blue);
+    font-weight: map-get($map: $font-weight, $key: lighter);
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    @extend %flexbox;
+    flex: 1 1 100%;
+    flex-direction: column;
+}
+
+.terms-and-conditions span {
+    text-align: center;
+    line-height: 1.25;
+}

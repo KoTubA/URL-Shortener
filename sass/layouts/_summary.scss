@@ -1,0 +1,27 @@
+@use '../abstracts/colors' as *;
+@use '../base/extends' as *;
+@use '../base/minix' as *;
+
+.summary {
+    padding: 4.9rem 1.5rem;
+    @extend %flexbox;
+    background-color: map-get($map: $primary, $key: dark-violet);
+    background-image: url(../images/bg-boost-mobile.svg);
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+
+.summary-cnt {
+    @extend %flexbox;
+    flex-direction: column;
+    flex: 1 1 100%;
+}
+
+.comapre-table-row {
+    padding: 0.2rem 0rem;
+}
+
+.summary-title {
+    @include title($map-value: $primary, $key-value: white-color);
+    margin-block-start: 0;
+}

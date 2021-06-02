@@ -1,0 +1,16 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/values' as *;
+
+.main-link {
+    transition: color 0.15s ease-in-out;
+}
+
+.main-link {
+    color: map-get($map: $primary, $key: cyan-color);
+    font-size: inherit;
+    text-decoration: underline;
+}
+
+.main-link:hover {
+    color: map-get($map: $neutral, $key: light-cyan);
+}

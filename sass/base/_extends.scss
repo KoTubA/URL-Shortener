@@ -1,0 +1,27 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/values' as *;
+
+%flexbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%title {
+    font-weight: map-get($map: $font-weight, $key: heavy);
+    text-align: center;
+}
+
+%description {
+    text-align: center;
+    color: map-get($map: $neutral, $key: grayish-violet);
+}
+
+%nav {
+    list-style-type: none;
+    margin: 0;
+    padding-bottom: 1rem;
+    padding-inline-start: 0;
+    @extend %flexbox;
+    flex-direction: column;
+}

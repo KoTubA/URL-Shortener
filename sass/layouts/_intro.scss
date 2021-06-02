@@ -1,0 +1,55 @@
+@use '../base/extends' as *;
+@use '../base/minix' as *;
+
+.intro {
+    @extend %flexbox;
+    padding: 0 0 4rem 0;
+    position: relative;
+}
+
+.intro-cnt {
+    @extend %flexbox;
+    flex-direction: column;
+    flex: 1 1 100%;
+    align-items: flex-start;
+    overflow: hidden;
+    padding-bottom: 3px;
+}
+
+.illustration-intro {
+    position: relative;
+    margin-left: 1.5rem;
+}
+
+.illustration-intro img {
+    width: 32rem;
+}
+
+.info-description-cnt {
+    padding: 0rem 1.5rem;
+    @extend %flexbox;
+    flex-direction: column;
+}
+
+.info-title {
+    @include title;
+    font-size: 2.6rem;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+}
+
+.info-description {
+    @extend %description;
+    margin: 0 0 2rem 0;
+    line-height: 1.75;
+}
+
+.illustration-intro-smaller {
+    top: -0.5rem;
+    align-self: center;
+}
+
+.illustration-intro-smaller img {
+    width: 100%;
+    margin-bottom: -2rem;
+}

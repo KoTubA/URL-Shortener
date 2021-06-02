@@ -1,8 +1,3 @@
-$layout: (
-    "mobile": 375px,
-    "desktop": 1440px,
-);
-
 $primary: (
     "white-color": #ffffff,
     "cyan-color": hsl(180, 66%, 49%),
@@ -22,10 +17,4 @@ $neutral: (
     "dark-blue": hsl(228, 2%, 43%),
     "very-dark-blue": hsl(255, 11%, 22%),
     "very-dark-violet": hsl(260, 8%, 14%),
-);
-
-$font-weight: (
-    "lighter": 400,
-    "light": 500,
-    "heavy": 700,
 );

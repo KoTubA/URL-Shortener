@@ -1,0 +1,35 @@
+@use '../abstracts/colors' as *;
+@use '../base/extends' as *;
+
+*,
+*::after,
+*::before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.main {
+    overflow: hidden;
+}
+
+button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    @extend %flexbox;
+    padding: 0;
+}
+
+a:focus,
+button:focus {
+    outline: map-get($map: $primary, $key: cyan-color) dotted 3px;
+}

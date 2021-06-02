@@ -1,0 +1,102 @@
+@use '../abstracts/colors' as *;
+@use '../base/extends' as *;
+@use '../base/minix' as *;
+
+.advanced-statistics {
+    @extend %flexbox;
+    background-color: map-get($map: $neutral, $key: gray-blue);
+    padding: 1.5rem;
+}
+
+.advanced-statistics-cnt {
+    @extend %flexbox;
+    flex-direction: column;
+    flex: 1 1 100%;
+}
+
+.advanced-statistics-description,
+.statistics-card-description {
+    text-align: center;
+    color: map-get($map: $neutral, $key: grayish-violet);
+}
+
+.get-started-btn {
+    padding-left: 2.7rem;
+    padding-right: 2.7rem;
+    font-size: 1.2rem;
+}
+
+.advanced-statistics-title {
+    @include title;
+    font-size: 1.7rem;
+    padding-top: 1rem;
+    margin-block-end: 0.5em;
+}
+
+.advanced-statistics-description {
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 32rem;
+    margin-block-start: 0em;
+}
+
+.statistics-cards {
+    max-width: 43rem;
+    width: 100%;
+    position: relative;
+    @extend %flexbox;
+    flex-direction: column;
+    z-index: 1;
+    margin: 5rem 0rem 3.5rem 0rem;
+}
+
+.statistics-cards::after {
+    content: "";
+    position: absolute;
+    background-color: map-get($map: $primary, $key: cyan-color);
+    width: 0.5rem;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+}
+
+.statistics-card {
+    position: relative;
+    @extend %flexbox;
+    flex-direction: column;
+    background-color: map-get($map: $primary, $key: white-color);
+    margin: 3rem 0rem;
+    padding: 1.9rem;
+    max-width: 22rem;
+    border-radius: 0.3rem;
+}
+
+.statistics-card:first-child {
+    margin-top: 0rem;
+}
+
+.statistics-card:last-child {
+    margin-bottom: 0rem;
+}
+
+.statistics-card-icon {
+    position: absolute;
+    background-color: map-get($map: $primary, $key: dark-violet);
+    width: 5.4rem;
+    height: 5.4rem;
+    border-radius: 50%;
+    top: -2.7rem;
+    @extend %flexbox;
+}
+
+.statistics-card-title {
+    @include title;
+    margin: 0;
+    padding-top: 2.6rem;
+    font-size: 1.4rem;
+}
+
+.statistics-card-description {
+    font-size: 0.95rem;
+    line-height: 1.6rem;
+}

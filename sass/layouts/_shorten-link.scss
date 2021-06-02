@@ -1,0 +1,67 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/values' as *;
+@use '../base/extends' as *;
+
+.shorten-link {
+    @extend %flexbox;
+    z-index: 1;
+    padding: 1.5rem;
+    background-color: map-get($map: $neutral, $key: gray-blue);
+    position: relative;
+}
+
+.shorten-link::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    height: 50%;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: map-get($map: $primary, $key: white-color);
+}
+
+.shorten-link-cnt {
+    @extend %flexbox;
+    flex-direction: column;
+    flex: 1 1 100%;
+    padding: 1.5rem;
+    background-color: map-get($map: $primary, $key: dark-violet);
+    background-image: url(../images/bg-shorten-mobile.svg);
+    background-position: top right;
+    background-repeat: no-repeat;
+    border-radius: 0.7rem;
+}
+
+.shorten-link-input-group {
+    width: 100%;
+}
+
+.shorten-link-label,
+.shorten-link-title,
+.show-for-sr {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+#shorten-link-input-field {
+    width: 100%;
+    border: 3px solid map-get($map: $primary, $key: white-color);
+    font-weight: map-get($map: $font-weight, $key: light);
+    border-radius: 0.6rem;
+    font-size: 1rem;
+    padding: 0.7rem 0.8rem;
+    outline: none;
+}
+
+#shorten-link-input-field::placeholder {
+    font-family: "Poppins", sans-serif;
+    color: map-get($map: $neutral, $key: very-dark-blue);
+    opacity: 0.5;
+}

@@ -1,0 +1,7 @@
+@use '../abstracts/colors' as *;
+@use '../base/extends' as *;
+
+@mixin title($map-value: $neutral, $key-value: very-dark-blue) {
+    @extend %title;
+    color: map-get($map: $map-value, $key: $key-value);
+}
