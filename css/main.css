@@ -15,7 +15,8 @@
   transition: background-color 0.15s ease-in-out;
 }
 
-.main-btn-opposed {
+.main-btn-opposed,
+.pricing-link-btn-opposed {
   transition: color 0.15s ease-in-out;
 }
 
@@ -28,12 +29,23 @@
 }
 
 .shorten-link-btn,
-.pricing-link-btn {
+.pricing-link-btn,
+.pricing-link-btn-opposed {
   width: 100%;
   border-radius: 0.5rem;
   margin-top: 1rem;
   font-family: Arial;
   text-align: center;
+}
+
+.pricing-link-btn-opposed {
+  color: #2acfcf;
+  background-color: #ffffff;
+}
+
+.main-btn.pricing-link-btn-opposed:hover {
+  color: #9be4e4;
+  background-color: #ffffff;
 }
 
 .main-link {
@@ -624,11 +636,6 @@ button, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-fea
   background-color: #2acfcf;
   color: #ffffff;
   margin: 1rem 0rem;
-}
-
-.pricing-card:nth-child(2) .pricing-link-btn {
-  color: #2acfcf;
-  background-color: #ffffff;
 }
 
 .pricing-card:nth-child(2) .pricing-cost-title,

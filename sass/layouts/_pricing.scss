@@ -91,11 +91,6 @@
     margin: 1rem 0rem;
 }
 
-.pricing-card:nth-child(2) .pricing-link-btn {
-    color: map-get($map: $primary, $key: cyan-color);
-    background-color: map-get($map: $primary, $key: white-color);
-}
-
 .pricing-card:nth-child(2) .pricing-cost-title,
 .pricing-card:nth-child(2) .pricing-cost,
 .pricing-card:nth-child(2) .pricing-switch-text,

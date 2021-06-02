@@ -18,7 +18,8 @@
     transition: background-color 0.15s ease-in-out;
 }
 
-.main-btn-opposed {
+.main-btn-opposed,
+.pricing-link-btn-opposed {
     transition: color 0.15s ease-in-out;
 }
 
@@ -31,10 +32,21 @@
 }
 
 .shorten-link-btn,
-.pricing-link-btn {
+.pricing-link-btn,
+.pricing-link-btn-opposed {
     width: 100%;
     border-radius: 0.5rem;
     margin-top: 1rem;
     font-family: Arial;
     text-align: center;
+}
+
+.pricing-link-btn-opposed {
+    color: map-get($map: $primary, $key: cyan-color);
+    background-color: map-get($map: $primary, $key: white-color);
+}
+
+.main-btn.pricing-link-btn-opposed:hover {
+    color: map-get($map: $neutral, $key: light-cyan);
+    background-color: map-get($map: $primary, $key: white-color);
 }
