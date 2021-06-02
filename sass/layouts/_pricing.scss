@@ -131,6 +131,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 100%;
+    padding-top: 1rem;
     font-size: 0.9rem;
     color: map-get($map: $neutral, $key: very-dark-blue);
 }
