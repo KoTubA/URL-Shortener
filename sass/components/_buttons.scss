@@ -33,7 +33,8 @@
 
 .shorten-link-btn,
 .pricing-link-btn,
-.pricing-link-btn-opposed {
+.pricing-link-btn-opposed,
+.watch-now-btn {
     width: 100%;
     border-radius: 0.5rem;
     margin-top: 1rem;
@@ -49,4 +50,14 @@
 .main-btn.pricing-link-btn-opposed:hover {
     color: map-get($map: $neutral, $key: light-cyan);
     background-color: map-get($map: $primary, $key: white-color);
+}
+
+.watch-now-btn {
+    margin-top: 1.5rem;
+}
+
+.get-started-btn {
+    padding-left: 2.7rem;
+    padding-right: 2.7rem;
+    font-size: 1.2rem;
 }

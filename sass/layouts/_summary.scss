@@ -3,7 +3,7 @@
 @use '../base/minix' as *;
 
 .summary {
-    padding: 4.9rem 1.5rem;
+    padding: 4.9rem 1.25rem;
     @extend %flexbox;
     background-color: map-get($map: $primary, $key: dark-violet);
     background-image: url(../images/bg-boost-mobile.svg);

@@ -17,6 +17,15 @@
     .form-title {
         font-size: 1.8rem;
     }
+
+    .resources-items-list {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+    }
+
+    .illustration-resources {
+        height: 20rem;
+    }
 }
 
 @media (min-width: 600px) {
@@ -37,7 +46,9 @@
     .summary,
     .form,
     .footer,
-    .pricing {
+    .pricing,
+    .resources-items,
+    .resources {
         padding-left: 2rem;
         padding-right: 2rem;
     }
@@ -64,6 +75,14 @@
     .advanced-statistics-cnt {
         max-width: 40rem;
     }
+
+    .rescources-items-filter-list {
+        flex-direction: row;
+    }
+
+    .rescources-items-filter-list li {
+        margin-right: 0.5rem;
+    }
 }
 
 @media (min-width: 800px) {
@@ -72,6 +91,10 @@
         justify-content: flex-end;
         overflow: visible;
         padding-bottom: 0;
+    }
+
+    .resources-cnt {
+        flex-direction: row;
     }
 
     .info-description-cnt {
@@ -274,6 +297,32 @@
     .comapre-table-features {
         grid-column: auto;
     }
+
+    .resources {
+        padding-top: 3rem;
+        padding-bottom: 0rem;
+    }
+
+    .resources-cnt {
+        padding-bottom: 4rem;
+    }
+
+    .illustration-resources {
+        height: 18rem;
+        width: 50%;
+        margin-right: 1rem;
+    }
+
+    .resources-description-cnt {
+        width: 50%;
+        padding-top: 0rem;
+        margin-left: 1rem;
+    }
+
+    .watch-now-btn {
+        width: fit-content;
+        padding: 1rem 2.5rem;
+    }
 }
 
 @media (min-width: 960px) {
@@ -283,7 +332,9 @@
     .summary,
     .form,
     .footer,
-    .pricing {
+    .pricing,
+    .resources-items,
+    .resources {
         padding-left: 4rem;
         padding-right: 4rem;
     }
@@ -340,6 +391,19 @@
     .info-title-smaller {
         font-size: 3rem;
     }
+
+    .resources-items-list {
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 1rem;
+    }
+
+    .resources-title {
+        font-size: 2.1rem;
+    }
+
+    .resources-description {
+        font-size: 1rem;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -349,7 +413,9 @@
     .summary,
     .form,
     .footer,
-    .pricing {
+    .pricing,
+    .resources-items,
+    .resources {
         padding-left: 5rem;
         padding-right: 5rem;
     }
@@ -410,6 +476,10 @@
         grid-template-columns: auto 200px 200px 200px;
         grid-template-rows: auto;
     }
+
+    .resources-items-list {
+        column-gap: 1.5rem;
+    }
 }
 
 @media (min-width: 1280px) {
@@ -454,7 +524,9 @@
     .summary,
     .form,
     .footer,
-    .pricing {
+    .pricing,
+    .resources-items,
+    .resources {
         padding-left: 0rem;
         padding-right: 0rem;
     }
@@ -466,7 +538,9 @@
     .summary-cnt,
     .footer-cnt,
     .form-cnt,
-    .pricing-cnt {
+    .pricing-cnt,
+    .resources-items-cnt,
+    .resources-cnt {
         max-width: 1110px;
     }
 
@@ -587,5 +661,31 @@
 
     .pricing-card:last-child {
         margin-right: 0;
+    }
+
+    .resources-items-cnt {
+        grid-template-columns: 25% 75%;
+    }
+
+    .rescources-items-filter-list {
+        flex-direction: column;
+    }
+
+    .resources-items-filter {
+        justify-content: flex-start;
+        padding-right: 4rem;
+    }
+
+    .resources-title {
+        font-size: 2.3rem;
+    }
+
+    .illustration-resources {
+        height: 20rem;
+        margin-right: 2rem;
+    }
+
+    .resources-description-cnt {
+        margin-left: 2rem;
     }
 }

@@ -30,7 +30,8 @@
 
 .shorten-link-btn,
 .pricing-link-btn,
-.pricing-link-btn-opposed {
+.pricing-link-btn-opposed,
+.watch-now-btn {
   width: 100%;
   border-radius: 0.5rem;
   margin-top: 1rem;
@@ -48,6 +49,16 @@
   background-color: #ffffff;
 }
 
+.watch-now-btn {
+  margin-top: 1.5rem;
+}
+
+.get-started-btn {
+  padding-left: 2.7rem;
+  padding-right: 2.7rem;
+  font-size: 1.2rem;
+}
+
 .main-link {
   transition: color 0.15s ease-in-out;
 }
@@ -62,26 +73,28 @@
   color: #9be4e4;
 }
 
-button, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-features,
+button, .resources, .resources-cnt, .illustration-resources, .resources-description-cnt, .resources-items, .resources-items-filter, .resources-item, .resources-item-img, .resources-item-section, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-features,
 .comapre-table-data, .summary, .summary-cnt, .intro, .intro-cnt, .info-description-cnt, .form, .form-cnt, .form-control, .terms-and-conditions, .advanced-statistics, .advanced-statistics-cnt, .statistics-cards, .statistics-card, .statistics-card-icon, .shorten-link, .shorten-link-cnt, .header, .nav-item a,
-.side-nav-btn, .side-nav-items, .footer, .footer-cnt, .footer-nav, .container-nav-items, .footer-nav-items,
+.side-nav-btn, .side-nav-items, .footer, .footer-cnt, .footer-nav, .rescources-items-filter-list, .container-nav-items, .footer-nav-items,
 .footer-social-media-items {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.compare-title, .summary-title, .info-title, .form-title, .advanced-statistics-title, .statistics-card-title {
+.resources-title,
+.resources-item-title, .resources-category,
+.resources-item-category, .rescources-items-filter-title, .compare-title, .summary-title, .info-title, .form-title, .advanced-statistics-title, .statistics-card-title {
   font-weight: 700;
   text-align: center;
 }
 
-.info-description, .form-description {
+.resources-description, .rescources-items-filter-description, .info-description, .form-description {
   text-align: center;
   color: #9e9aa7;
 }
 
-.container-nav-items, .footer-nav-items,
+.rescources-items-filter-list, .container-nav-items, .footer-nav-items,
 .footer-social-media-items {
   list-style-type: none;
   margin: 0;
@@ -92,7 +105,7 @@ button, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-fea
 
 .advanced-statistics {
   background-color: #eef0f6;
-  padding: 1.5rem;
+  padding: 1.5rem 1.25rem;
 }
 
 .advanced-statistics-cnt {
@@ -104,12 +117,6 @@ button, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-fea
 .statistics-card-description {
   text-align: center;
   color: #9e9aa7;
-}
-
-.get-started-btn {
-  padding-left: 2.7rem;
-  padding-right: 2.7rem;
-  font-size: 1.2rem;
 }
 
 .advanced-statistics-title {
@@ -214,7 +221,7 @@ button, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-fea
 }
 
 .footer {
-  padding: 3rem 1.5rem;
+  padding: 3rem 1.25rem;
   background-color: #232127;
 }
 
@@ -246,7 +253,7 @@ button, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-fea
 }
 
 .form {
-  padding: 0rem 1.5rem;
+  padding: 0rem 1.25rem;
 }
 
 .form-cnt {
@@ -359,7 +366,7 @@ button, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-fea
 
 .illustration-intro {
   position: relative;
-  margin-left: 1.5rem;
+  margin-left: 1.25rem;
 }
 
 .illustration-intro img {
@@ -367,7 +374,7 @@ button, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-fea
 }
 
 .info-description-cnt {
-  padding: 0rem 1.5rem;
+  padding: 0rem 1.25rem;
   flex-direction: column;
 }
 
@@ -394,7 +401,7 @@ button, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-fea
 }
 
 .header {
-  padding: 1.5rem;
+  padding: 1.5rem 1.25rem;
 }
 
 .header-cnt {
@@ -470,7 +477,7 @@ button, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-fea
 
 .shorten-link {
   z-index: 1;
-  padding: 1.5rem;
+  padding: 1.5rem 1.25rem;
   background-color: #eef0f6;
   position: relative;
 }
@@ -531,7 +538,7 @@ button, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-fea
 }
 
 .summary {
-  padding: 4.9rem 1.5rem;
+  padding: 4.9rem 1.25rem;
   background-color: #3b3054;
   background-image: url(../images/bg-boost-mobile.svg);
   background-position: top right;
@@ -554,7 +561,7 @@ button, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-fea
 
 .pricing {
   background-color: #eef0f6;
-  padding: 1.5rem;
+  padding: 1.5rem 1.25rem;
 }
 
 .pricing-cnt {
@@ -747,6 +754,166 @@ button, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-fea
   margin-top: 0.5rem;
 }
 
+.resources {
+  padding: 1.25rem 1.25rem 0rem 1.25rem;
+}
+
+.resources-cnt {
+  flex-direction: column;
+  flex: 1 1 100%;
+  align-items: flex-start;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #eef0f6;
+}
+
+.illustration-resources {
+  padding: 0.5rem;
+  background-color: #eef0f6;
+  width: 100%;
+  height: 15rem;
+}
+
+.illustration-resources img {
+  max-width: 100%;
+  height: 100%;
+}
+
+.resources-description-cnt {
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 1.25rem;
+  width: 100%;
+}
+
+.resources-title,
+.resources-item-title {
+  color: #35323e;
+  text-align: left;
+  font-size: 1.8rem;
+  line-height: 1.25;
+  margin: 0rem 0rem 1rem 0rem;
+}
+
+.resources-category,
+.resources-item-category {
+  color: #6b6c70;
+  font-weight: 400;
+  line-height: 2;
+  text-align: left;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.resources-description {
+  text-align: left;
+  margin: 0;
+  line-height: 1.45;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.resources-items {
+  padding: 3rem 1.25rem 1rem 1.25rem;
+  width: 100%;
+}
+
+.resources-items-cnt {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.resources-items-filter {
+  width: 100%;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.rescources-items-filter-list {
+  align-items: flex-start;
+  padding-bottom: 2rem;
+}
+
+.rescources-items-filter-title {
+  margin: 0;
+}
+
+.rescources-items-filter-title {
+  color: #35323e;
+  text-align: left;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #eef0f6;
+  font-weight: 500;
+  width: 100%;
+}
+
+.rescources-items-filter-description {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.rescources-items-filter-list li {
+  cursor: pointer;
+  border-radius: 3rem;
+  font-size: 1rem;
+  padding: 0.4rem 1rem;
+  color: #35323e;
+  background-color: #eef0f6;
+  border: 1px solid #eef0f6;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  transition: all 0.15s ease-in-out;
+}
+
+.rescources-items-filter-list li:hover {
+  border: 1px solid #2acfcf;
+  color: #2acfcf;
+}
+
+.resources-items-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+.resources-item {
+  flex: 1 1 100%;
+  flex-direction: column;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid #e6e6e6;
+  margin-bottom: 2.5rem;
+  align-items: flex-start;
+}
+
+.resources-item-img {
+  width: 100%;
+  height: 12.5rem;
+  padding: 0.5rem;
+  background-color: #eef0f6;
+}
+
+.resources-item-img img {
+  max-width: 100%;
+  height: 100%;
+}
+
+.resources-item-section {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.7rem 1.25rem 1.5rem 1.25rem;
+}
+
+.resources-item-category {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.resources-item-title {
+  font-size: 1.3rem;
+  line-height: 1.1;
+}
+
 body,
 button,
 a {
@@ -771,6 +938,15 @@ a {
   .form-title {
     font-size: 1.8rem;
   }
+
+  .resources-items-list {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+  }
+
+  .illustration-resources {
+    height: 20rem;
+  }
 }
 @media (min-width: 600px) {
   .illustration-intro,
@@ -790,7 +966,9 @@ a {
 .summary,
 .form,
 .footer,
-.pricing {
+.pricing,
+.resources-items,
+.resources {
     padding-left: 2rem;
     padding-right: 2rem;
   }
@@ -816,6 +994,14 @@ a {
   .advanced-statistics-cnt {
     max-width: 40rem;
   }
+
+  .rescources-items-filter-list {
+    flex-direction: row;
+  }
+
+  .rescources-items-filter-list li {
+    margin-right: 0.5rem;
+  }
 }
 @media (min-width: 800px) {
   .intro-cnt {
@@ -823,6 +1009,10 @@ a {
     justify-content: flex-end;
     overflow: visible;
     padding-bottom: 0;
+  }
+
+  .resources-cnt {
+    flex-direction: row;
   }
 
   .info-description-cnt {
@@ -1025,6 +1215,32 @@ a {
   .comapre-table-features {
     grid-column: auto;
   }
+
+  .resources {
+    padding-top: 3rem;
+    padding-bottom: 0rem;
+  }
+
+  .resources-cnt {
+    padding-bottom: 4rem;
+  }
+
+  .illustration-resources {
+    height: 18rem;
+    width: 50%;
+    margin-right: 1rem;
+  }
+
+  .resources-description-cnt {
+    width: 50%;
+    padding-top: 0rem;
+    margin-left: 1rem;
+  }
+
+  .watch-now-btn {
+    width: fit-content;
+    padding: 1rem 2.5rem;
+  }
 }
 @media (min-width: 960px) {
   .header,
@@ -1033,7 +1249,9 @@ a {
 .summary,
 .form,
 .footer,
-.pricing {
+.pricing,
+.resources-items,
+.resources {
     padding-left: 4rem;
     padding-right: 4rem;
   }
@@ -1090,6 +1308,19 @@ a {
   .info-title-smaller {
     font-size: 3rem;
   }
+
+  .resources-items-list {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1rem;
+  }
+
+  .resources-title {
+    font-size: 2.1rem;
+  }
+
+  .resources-description {
+    font-size: 1rem;
+  }
 }
 @media (min-width: 1024px) {
   .header,
@@ -1098,7 +1329,9 @@ a {
 .summary,
 .form,
 .footer,
-.pricing {
+.pricing,
+.resources-items,
+.resources {
     padding-left: 5rem;
     padding-right: 5rem;
   }
@@ -1159,6 +1392,10 @@ a {
     grid-template-columns: auto 200px 200px 200px;
     grid-template-rows: auto;
   }
+
+  .resources-items-list {
+    column-gap: 1.5rem;
+  }
 }
 @media (min-width: 1280px) {
   .statistics-cards {
@@ -1202,7 +1439,9 @@ a {
 .summary,
 .form,
 .footer,
-.pricing {
+.pricing,
+.resources-items,
+.resources {
     padding-left: 0rem;
     padding-right: 0rem;
   }
@@ -1214,7 +1453,9 @@ a {
 .summary-cnt,
 .footer-cnt,
 .form-cnt,
-.pricing-cnt {
+.pricing-cnt,
+.resources-items-cnt,
+.resources-cnt {
     max-width: 1110px;
   }
 
@@ -1335,6 +1576,32 @@ a {
 
   .pricing-card:last-child {
     margin-right: 0;
+  }
+
+  .resources-items-cnt {
+    grid-template-columns: 25% 75%;
+  }
+
+  .rescources-items-filter-list {
+    flex-direction: column;
+  }
+
+  .resources-items-filter {
+    justify-content: flex-start;
+    padding-right: 4rem;
+  }
+
+  .resources-title {
+    font-size: 2.3rem;
+  }
+
+  .illustration-resources {
+    height: 20rem;
+    margin-right: 2rem;
+  }
+
+  .resources-description-cnt {
+    margin-left: 2rem;
   }
 }
 *,

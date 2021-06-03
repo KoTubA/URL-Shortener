@@ -5,7 +5,7 @@
 .shorten-link {
     @extend %flexbox;
     z-index: 1;
-    padding: 1.5rem;
+    padding: 1.5rem 1.25rem;
     background-color: map-get($map: $neutral, $key: gray-blue);
     position: relative;
 }

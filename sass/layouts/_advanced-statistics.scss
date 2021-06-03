@@ -5,7 +5,7 @@
 .advanced-statistics {
     @extend %flexbox;
     background-color: map-get($map: $neutral, $key: gray-blue);
-    padding: 1.5rem;
+    padding: 1.5rem 1.25rem;
 }
 
 .advanced-statistics-cnt {
@@ -18,12 +18,6 @@
 .statistics-card-description {
     text-align: center;
     color: map-get($map: $neutral, $key: grayish-violet);
-}
-
-.get-started-btn {
-    padding-left: 2.7rem;
-    padding-right: 2.7rem;
-    font-size: 1.2rem;
 }
 
 .advanced-statistics-title {
