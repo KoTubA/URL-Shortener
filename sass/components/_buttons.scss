@@ -47,6 +47,10 @@
     background-color: map-get($map: $primary, $key: white-color);
 }
 
+.main-btn.pricing-link-btn-opposed:focus {
+    outline: map-get($map: $primary, $key: white-color) dotted 3px;
+}
+
 .main-btn.pricing-link-btn-opposed:hover {
     color: map-get($map: $neutral, $key: light-cyan);
     background-color: map-get($map: $primary, $key: white-color);
