@@ -4,6 +4,7 @@
 
 .summary {
     padding: 4.9rem 1.25rem;
+    height: 300px;
     @extend %flexbox;
     background-color: map-get($map: $primary, $key: dark-violet);
     background-image: url(../images/bg-boost-mobile.svg);
@@ -24,4 +25,5 @@
 .summary-title {
     @include title($map-value: $primary, $key-value: white-color);
     margin-block-start: 0;
+    margin-bottom: 1.5rem;
 }

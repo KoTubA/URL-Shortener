@@ -244,6 +244,7 @@
 
     .summary {
         background-image: url(../images/bg-boost-desktop.svg);
+        height: 250px;
         padding-top: 3.3rem;
         padding-bottom: 3.3rem;
     }
@@ -414,6 +415,10 @@
 
     .footer-nav-items-wrapper {
         margin: 0 2rem;
+    }
+
+    .footer-social-media-item:last-child {
+        margin-right: 0rem;
     }
 
     .advanced-statistics-title {
@@ -642,12 +647,13 @@
     }
 
     .illustration-intro {
-        left: 57.5%;
+        left: 64%;
         width: 46rem;
     }
 
     .illustration-intro-smaller {
         width: 30rem;
+        left: 57.5%;
     }
 
     #shorten-link-input-field {

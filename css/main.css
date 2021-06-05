@@ -80,7 +80,7 @@
 button, .features, .features-cnt,
 .features-cards,
 .features-card,
-.features-card-section, .features-card-img, .resources, .resources-cnt, .illustration-resources, .resources-description-cnt, .resources-items, .resources-items-filter, .resources-item, .resources-item-img, .resources-item-section, .pricing, .pricing-cnt, .pricing-cards, .compare-cnt, .comapre-table-features,
+.features-card-section, .features-card-img, .resources, .resources-cnt, .illustration-resources, .resources-description-cnt, .resources-items, .resources-items-filter, .resources-item, .resources-item-img, .resources-item-section, .pricing, .pricing-cnt, .pricing-cards, .pricing-switch-cost-data, .pricing-switch-text, .compare-cnt, .comapre-table-features,
 .comapre-table-data, .summary, .summary-cnt, .intro, .intro-cnt, .info-description-cnt, .form, .form-cnt, .form-control, .terms-and-conditions, .advanced-statistics, .advanced-statistics-cnt, .statistics-cards, .statistics-card, .statistics-card-icon, .shorten-link, .shorten-link-cnt, .header, .nav-item a,
 .side-nav-btn, .side-nav-items, .footer, .footer-cnt, .footer-nav, .rescources-items-filter-list, .container-nav-items, .footer-nav-items,
 .footer-social-media-items {
@@ -394,7 +394,7 @@ button, .features, .features-cnt,
 
 .info-description {
   margin: 0 0 2rem 0;
-  line-height: 1.75;
+  line-height: 1.6;
 }
 
 .illustration-intro-smaller {
@@ -546,6 +546,7 @@ button, .features, .features-cnt,
 
 .summary {
   padding: 4.9rem 1.25rem;
+  height: 300px;
   background-color: #3b3054;
   background-image: url(../images/bg-boost-mobile.svg);
   background-position: top right;
@@ -564,6 +565,7 @@ button, .features, .features-cnt,
 .summary-title {
   color: #ffffff;
   margin-block-start: 0;
+  margin-bottom: 1.5rem;
 }
 
 .pricing {
@@ -645,6 +647,22 @@ button, .features, .features-cnt,
   justify-items: center;
 }
 
+.pricing-switch-cost-cnt .pricing-switch-cost-year {
+  display: none;
+}
+
+.isYearly .pricing-switch-cost-month {
+  display: none;
+}
+
+.isYearly .pricing-switch-cost-year {
+  display: flex;
+}
+
+.pricing-switch-cost-data {
+  flex-direction: column;
+}
+
 .pricing-card:nth-child(2) {
   margin-left: 0;
   background-color: #2acfcf;
@@ -682,6 +700,14 @@ button, .features, .features-cnt,
   margin-bottom: 1.5rem;
   font-size: 1rem;
   text-align: center;
+  position: relative;
+}
+
+.pricing-switch-text-save {
+  position: absolute;
+  bottom: -1rem;
+  width: max-content;
+  font-size: 0.8rem;
 }
 
 .compare-title {
@@ -774,7 +800,7 @@ button, .features, .features-cnt,
 }
 
 .illustration-resources {
-  padding: 0.5rem;
+  padding: 1rem;
   background-color: #eef0f6;
   width: 100%;
   height: 15rem;
@@ -890,12 +916,13 @@ button, .features, .features-cnt,
   border: 1px solid #e6e6e6;
   margin-bottom: 2.5rem;
   align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .resources-item-img {
   width: 100%;
   height: 12.5rem;
-  padding: 0.5rem;
+  padding: 1rem;
   background-color: #eef0f6;
 }
 
@@ -910,6 +937,10 @@ button, .features, .features-cnt,
   padding: 0.7rem 1.25rem 1.5rem 1.25rem;
 }
 
+.resources-item-section-invisible {
+  display: none;
+}
+
 .resources-item-category {
   font-size: 1rem;
   margin-bottom: 0.5rem;
@@ -917,7 +948,7 @@ button, .features, .features-cnt,
 }
 
 .resources-item-title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   line-height: 1.1;
 }
 
@@ -1228,6 +1259,7 @@ a {
 
   .summary {
     background-image: url(../images/bg-boost-desktop.svg);
+    height: 250px;
     padding-top: 3.3rem;
     padding-bottom: 3.3rem;
   }
@@ -1397,6 +1429,10 @@ a {
 
   .footer-nav-items-wrapper {
     margin: 0 2rem;
+  }
+
+  .footer-social-media-item:last-child {
+    margin-right: 0rem;
   }
 
   .advanced-statistics-title {
@@ -1622,12 +1658,13 @@ a {
   }
 
   .illustration-intro {
-    left: 57.5%;
+    left: 64%;
     width: 46rem;
   }
 
   .illustration-intro-smaller {
     width: 30rem;
+    left: 57.5%;
   }
 
   #shorten-link-input-field {

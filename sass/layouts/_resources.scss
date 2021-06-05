@@ -19,7 +19,7 @@
 
 .illustration-resources {
     @extend %flexbox;
-    padding: 0.5rem;
+    padding: 1rem;
     background-color: map-get($map: $neutral, $key: gray-blue);
     width: 100%;
     height: 15rem;
@@ -142,12 +142,13 @@
     border: 1px solid #e6e6e6;
     margin-bottom: 2.5rem;
     align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .resources-item-img {
     width: 100%;
     height: 12.5rem;
-    padding: 0.5rem;
+    padding: 1rem;
     @extend %flexbox;
     background-color: map-get($map: $neutral, $key: gray-blue);
 }
@@ -164,6 +165,10 @@
     padding: 0.7rem 1.25rem 1.5rem 1.25rem;
 }
 
+.resources-item-section-invisible {
+    display: none;
+}
+
 .resources-item-category {
     font-size: 1rem;
     margin-bottom: 0.5rem;
@@ -171,6 +176,6 @@
 }
 
 .resources-item-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 1.1;
 }
