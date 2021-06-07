@@ -58,7 +58,8 @@
     .pricing,
     .resources-items,
     .resources,
-    .features {
+    .features,
+    .error {
         padding-left: 2rem;
         padding-right: 2rem;
     }
@@ -369,6 +370,10 @@
         width: 50%;
         margin-left: 1rem;
     }
+
+    .error-title {
+        font-size: 3rem;
+    }
 }
 
 @media (min-width: 960px) {
@@ -381,7 +386,8 @@
     .pricing,
     .resources-items,
     .resources,
-    .features {
+    .features,
+    .error {
         padding-left: 4rem;
         padding-right: 4rem;
     }
@@ -475,7 +481,8 @@
     .pricing,
     .resources-items,
     .resources,
-    .features {
+    .features,
+    .error {
         padding-left: 5rem;
         padding-right: 5rem;
     }
@@ -535,6 +542,14 @@
 
     .resources-items-list {
         column-gap: 1.5rem;
+    }
+
+    .error-title {
+        font-size: 3.5rem;
+    }
+
+    .error-description {
+        font-size: 1.2rem;
     }
 }
 
@@ -608,7 +623,8 @@
     .pricing-cnt,
     .resources-items-cnt,
     .resources-cnt,
-    .features-cnt {
+    .features-cnt,
+    .error-cnt {
         max-width: 1110px;
     }
 
@@ -768,5 +784,9 @@
 
     .features-card-description {
         font-size: 1.1rem;
+    }
+
+    .error-description {
+        font-size: 1.3rem;
     }
 }
