@@ -10,7 +10,7 @@
 
 .form-cnt {
     border-top: 1px solid map-get($map: $neutral, $key: gray-blue);
-    padding-bottom: 3px;
+    padding-bottom: 5rem;
     @extend %flexbox;
     flex-direction: column;
     flex: 1 1 100%;
@@ -65,8 +65,9 @@
 
 .form-title {
     @include title;
-    padding-top: 4rem;
+    padding-top: 2rem;
     margin-block-end: 0.5em;
+    line-height: 1.25;
     font-size: 1.7rem;
 }
 

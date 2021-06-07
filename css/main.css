@@ -265,7 +265,7 @@ button, .error, .error-cnt, .error-description-cnt, .features, .features-cnt,
 
 .form-cnt {
   border-top: 1px solid #eef0f6;
-  padding-bottom: 3px;
+  padding-bottom: 5rem;
   flex-direction: column;
   flex: 1 1 100%;
 }
@@ -318,8 +318,9 @@ button, .error, .error-cnt, .error-description-cnt, .features, .features-cnt,
 
 .form-title {
   color: #35323e;
-  padding-top: 4rem;
+  padding-top: 2rem;
   margin-block-end: 0.5em;
+  line-height: 1.25;
   font-size: 1.7rem;
 }
 
@@ -1354,6 +1355,10 @@ a {
 
   .info-title-smaller {
     font-size: 2.5rem;
+  }
+
+  .form-title {
+    padding-top: 4rem;
   }
 
   .pricing-card {
