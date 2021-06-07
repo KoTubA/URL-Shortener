@@ -428,16 +428,21 @@ button, .error, .error-cnt, .error-description-cnt, .features, .features-cnt,
   right: 0;
   background-color: #3b3054;
   color: #ffffff;
-  margin: 0rem 1.5rem;
+  margin-top: 1rem;
   border-radius: 0.5rem;
   padding: 2rem 1.5rem;
 }
 
-.nav-active {
+.nav-visible {
   display: flex;
   justify-content: center;
   flex-direction: column;
   flex: 1 1 100%;
+  z-index: 3;
+}
+
+.nav-visible + .mobile-nav-toogle {
+  z-index: 3;
 }
 
 .company-logo-link {
@@ -450,6 +455,10 @@ button, .error, .error-cnt, .error-description-cnt, .features, .features-cnt,
   padding: 0.6rem 0rem;
   width: 100%;
   font-weight: 700;
+}
+
+.nav-item {
+  width: 100%;
 }
 
 .nav-item a {
@@ -479,7 +488,27 @@ button, .error, .error-cnt, .error-description-cnt, .features, .features-cnt,
 
 .nav-item a:hover,
 .side-nav-btn:first-child:hover {
-  color: #35323e;
+  color: #2acfcf;
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+}
+
+.overlay-visible {
+  display: flex;
+  z-index: 2;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 .shorten-link {
@@ -1225,7 +1254,6 @@ a {
 
   .nav {
     display: flex;
-    justify-content: baseline;
     align-items: center;
     position: relative;
     background-color: transparent;
@@ -1238,6 +1266,11 @@ a {
   .nav-item a,
 .side-nav-btn:first-child {
     color: #9e9aa7;
+  }
+
+  .nav-item a:hover,
+.side-nav-btn:first-child:hover {
+    color: #35323e;
   }
 
   .side-nav-btn.main-btn {

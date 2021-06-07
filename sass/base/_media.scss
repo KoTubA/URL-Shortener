@@ -173,7 +173,6 @@
 
     .nav {
         display: flex;
-        justify-content: baseline;
         align-items: center;
         position: relative;
         background-color: transparent;
@@ -186,6 +185,11 @@
     .nav-item a,
     .side-nav-btn:first-child {
         color: map-get($map: $neutral, $key: grayish-violet);
+    }
+
+    .nav-item a:hover,
+    .side-nav-btn:first-child:hover {
+        color: map-get($map: $neutral, $key: very-dark-blue);
     }
 
     .side-nav-btn.main-btn {

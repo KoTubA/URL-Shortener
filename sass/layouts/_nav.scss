@@ -24,16 +24,21 @@
     right: 0;
     background-color: map-get($map: $primary, $key: dark-violet);
     color: map-get($map: $primary, $key: white-color);
-    margin: 0rem 1.5rem;
+    margin-top: 1rem;
     border-radius: 0.5rem;
     padding: 2rem 1.5rem;
 }
 
-.nav-active {
+.nav-visible {
     display: flex;
     justify-content: center;
     flex-direction: column;
     flex: 1 1 100%;
+    z-index: 3;
+}
+
+.nav-visible + .mobile-nav-toogle {
+    z-index: 3;
 }
 
 .container-nav-items {
@@ -51,6 +56,10 @@
     @extend %flexbox;
     width: 100%;
     font-weight: map-get($map: $font-weight, $key: heavy);
+}
+
+.nav-item {
+    width: 100%;
 }
 
 .nav-item a {
@@ -81,5 +90,25 @@
 
 .nav-item a:hover,
 .side-nav-btn:first-child:hover {
-    color: map-get($map: $neutral, $key: very-dark-blue);
+    color: map-get($map: $primary, $key: cyan-color);
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+}
+
+.overlay-visible {
+    display: flex;
+    z-index: 2;
+}
+
+.no-scroll {
+    overflow: hidden;
 }
