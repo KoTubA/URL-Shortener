@@ -1,5 +1,6 @@
 @use '../abstracts/colors' as *;
 @use '../abstracts/values' as *;
+@use '../base/extends' as *;
 
 .main-btn,
 .main-btn-opposed {
@@ -64,4 +65,25 @@
     padding-left: 2.7rem;
     padding-right: 2.7rem;
     font-size: 1.2rem;
+}
+
+.add-btn {
+    @extend %flexbox;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    background-color: map-get($map: $primary, $key: white-color);
+}
+
+.main-btn-add:hover svg path {
+    fill: map-get($map: $neutral, $key: light-cyan);
+}
+
+.main-btn-add {
+    padding: 0.5rem;
+}
+
+.main-btn-add span {
+    font-size: 1rem;
 }

@@ -1,0 +1,80 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/values' as *;
+@use '../base/extends' as *;
+@use '../base/minix' as *;
+
+.panel {
+    padding: 0rem 1.25rem;
+    @extend %flexbox;
+}
+
+.panel-cnt {
+    border-top: 1px solid map-get($map: $neutral, $key: gray-blue);
+    padding-bottom: 5rem;
+    padding-top: 2rem;
+    @extend %flexbox;
+    flex-direction: column;
+    flex: 1 1 100%;
+}
+
+.panel-nav {
+    @extend %flexbox;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.panel-title {
+    @include title;
+    margin: 0;
+    line-height: 1.25;
+    font-size: 1.5rem;
+}
+
+.panel-nav-info {
+    @extend %flexbox;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.panel-description {
+    @extend %description;
+    color: map-get($map: $neutral, $key: dark-blue);
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: map-get($map: $font-weight, $key: lighter);
+}
+
+.panel-result {
+    padding-top: 2rem;
+}
+
+.panel-result-empty {
+    @extend %flexbox;
+    flex-direction: column;
+}
+
+.panel-result-empty img {
+    width: 100%;
+    max-width: 32rem;
+    padding: 0rem 2rem;
+}
+
+.panel-result-empty .panel-title {
+    margin: 2rem 0rem 1rem 0rem;
+}
+
+.panel-result-empty .panel-description {
+    max-width: 15rem;
+}
+
+.panel-result-empty .panel-description span {
+    font-weight: map-get($map: $font-weight, $key: heavy);
+}
+
+.add-info {
+    margin-right: 0.5rem;
+}
+
+.add-info-plus {
+    display: none;
+}

@@ -59,9 +59,14 @@
     .resources-items,
     .resources,
     .features,
-    .error {
+    .error,
+    .panel {
         padding-left: 2rem;
         padding-right: 2rem;
+    }
+
+    .add-info-plus {
+        display: initial;
     }
 }
 
@@ -395,7 +400,8 @@
     .resources-items,
     .resources,
     .features,
-    .error {
+    .error,
+    .panel {
         padding-left: 4rem;
         padding-right: 4rem;
     }
@@ -490,7 +496,8 @@
     .resources-items,
     .resources,
     .features,
-    .error {
+    .error,
+    .panel {
         padding-left: 5rem;
         padding-right: 5rem;
     }
@@ -616,7 +623,8 @@
     .pricing,
     .resources-items,
     .resources,
-    .features {
+    .features,
+    .panel {
         padding-left: 0rem;
         padding-right: 0rem;
     }
@@ -632,7 +640,8 @@
     .resources-items-cnt,
     .resources-cnt,
     .features-cnt,
-    .error-cnt {
+    .error-cnt,
+    .panel-cnt {
         max-width: 1110px;
     }
 

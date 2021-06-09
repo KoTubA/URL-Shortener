@@ -1,3 +1,36 @@
+button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .error, .error-cnt, .error-description-cnt, .features, .features-cnt,
+.features-cards,
+.features-card,
+.features-card-section, .features-card-img, .resources, .resources-cnt, .illustration-resources, .resources-description-cnt, .resources-items, .resources-items-filter, .resources-item, .resources-item-img, .resources-item-section, .pricing, .pricing-cnt, .pricing-cards, .pricing-switch-cost-data, .pricing-switch-text, .compare-cnt, .comapre-table-features,
+.comapre-table-data, .summary, .summary-cnt, .intro, .intro-cnt, .info-description-cnt, .form, .form-cnt, .form-control, .terms-and-conditions, .advanced-statistics, .advanced-statistics-cnt, .statistics-cards, .statistics-card, .statistics-card-icon, .shorten-link, .shorten-link-cnt, .header, .nav-item a,
+.side-nav-btn, .side-nav-items, .footer, .footer-cnt, .footer-nav, .add-btn, .rescources-items-filter-list, .container-nav-items, .footer-nav-items,
+.footer-social-media-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel-title, .error-title, .features-card-title, .resources-title,
+.resources-item-title, .resources-category,
+.resources-item-category, .rescources-items-filter-title, .compare-title, .summary-title, .info-title, .form-title, .advanced-statistics-title, .statistics-card-title {
+  font-weight: 700;
+  text-align: center;
+}
+
+.panel-description, .error-description, .features-card-description, .resources-description, .rescources-items-filter-description, .info-description, .form-description {
+  text-align: center;
+  color: #9e9aa7;
+}
+
+.rescources-items-filter-list, .container-nav-items, .footer-nav-items,
+.footer-social-media-items {
+  list-style-type: none;
+  margin: 0;
+  padding-bottom: 1rem;
+  padding-inline-start: 0;
+  flex-direction: column;
+}
+
 .main-btn,
 .main-btn-opposed {
   color: #ffffff;
@@ -63,6 +96,26 @@
   font-size: 1.2rem;
 }
 
+.add-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  background-color: #ffffff;
+}
+
+.main-btn-add:hover svg path {
+  fill: #9be4e4;
+}
+
+.main-btn-add {
+  padding: 0.5rem;
+}
+
+.main-btn-add span {
+  font-size: 1rem;
+}
+
 .main-link {
   transition: color 0.15s ease-in-out;
 }
@@ -75,39 +128,6 @@
 
 .main-link:hover {
   color: #9be4e4;
-}
-
-button, .error, .error-cnt, .error-description-cnt, .features, .features-cnt,
-.features-cards,
-.features-card,
-.features-card-section, .features-card-img, .resources, .resources-cnt, .illustration-resources, .resources-description-cnt, .resources-items, .resources-items-filter, .resources-item, .resources-item-img, .resources-item-section, .pricing, .pricing-cnt, .pricing-cards, .pricing-switch-cost-data, .pricing-switch-text, .compare-cnt, .comapre-table-features,
-.comapre-table-data, .summary, .summary-cnt, .intro, .intro-cnt, .info-description-cnt, .form, .form-cnt, .form-control, .terms-and-conditions, .advanced-statistics, .advanced-statistics-cnt, .statistics-cards, .statistics-card, .statistics-card-icon, .shorten-link, .shorten-link-cnt, .header, .nav-item a,
-.side-nav-btn, .side-nav-items, .footer, .footer-cnt, .footer-nav, .rescources-items-filter-list, .container-nav-items, .footer-nav-items,
-.footer-social-media-items {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.error-title, .features-card-title, .resources-title,
-.resources-item-title, .resources-category,
-.resources-item-category, .rescources-items-filter-title, .compare-title, .summary-title, .info-title, .form-title, .advanced-statistics-title, .statistics-card-title {
-  font-weight: 700;
-  text-align: center;
-}
-
-.error-description, .features-card-description, .resources-description, .rescources-items-filter-description, .info-description, .form-description {
-  text-align: center;
-  color: #9e9aa7;
-}
-
-.rescources-items-filter-list, .container-nav-items, .footer-nav-items,
-.footer-social-media-items {
-  list-style-type: none;
-  margin: 0;
-  padding-bottom: 1rem;
-  padding-inline-start: 0;
-  flex-direction: column;
 }
 
 .advanced-statistics {
@@ -1078,6 +1098,76 @@ button, .error, .error-cnt, .error-description-cnt, .features, .features-cnt,
   font-weight: 400;
 }
 
+.panel {
+  padding: 0rem 1.25rem;
+}
+
+.panel-cnt {
+  border-top: 1px solid #eef0f6;
+  padding-bottom: 5rem;
+  padding-top: 2rem;
+  flex-direction: column;
+  flex: 1 1 100%;
+}
+
+.panel-nav {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.panel-title {
+  color: #35323e;
+  margin: 0;
+  line-height: 1.25;
+  font-size: 1.5rem;
+}
+
+.panel-nav-info {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.panel-description {
+  color: #6b6c70;
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+.panel-result {
+  padding-top: 2rem;
+}
+
+.panel-result-empty {
+  flex-direction: column;
+}
+
+.panel-result-empty img {
+  width: 100%;
+  max-width: 32rem;
+  padding: 0rem 2rem;
+}
+
+.panel-result-empty .panel-title {
+  margin: 2rem 0rem 1rem 0rem;
+}
+
+.panel-result-empty .panel-description {
+  max-width: 15rem;
+}
+
+.panel-result-empty .panel-description span {
+  font-weight: 700;
+}
+
+.add-info {
+  margin-right: 0.5rem;
+}
+
+.add-info-plus {
+  display: none;
+}
+
 body,
 button,
 a {
@@ -1143,9 +1233,14 @@ a {
 .resources-items,
 .resources,
 .features,
-.error {
+.error,
+.panel {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .add-info-plus {
+    display: initial;
   }
 }
 @media (min-width: 700px) {
@@ -1476,7 +1571,8 @@ a {
 .resources-items,
 .resources,
 .features,
-.error {
+.error,
+.panel {
     padding-left: 4rem;
     padding-right: 4rem;
   }
@@ -1570,7 +1666,8 @@ a {
 .resources-items,
 .resources,
 .features,
-.error {
+.error,
+.panel {
     padding-left: 5rem;
     padding-right: 5rem;
   }
@@ -1694,7 +1791,8 @@ a {
 .pricing,
 .resources-items,
 .resources,
-.features {
+.features,
+.panel {
     padding-left: 0rem;
     padding-right: 0rem;
   }
@@ -1710,7 +1808,8 @@ a {
 .resources-items-cnt,
 .resources-cnt,
 .features-cnt,
-.error-cnt {
+.error-cnt,
+.panel-cnt {
     max-width: 1110px;
   }
 
