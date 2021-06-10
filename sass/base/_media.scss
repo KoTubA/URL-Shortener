@@ -262,7 +262,6 @@
     .header-panel {
         padding: 0;
         height: 100vh;
-        background-color: map-get($map: $primary, $key: white-color);
     }
 
     .shorten-link-cnt {
@@ -436,8 +435,11 @@
     }
 
     .panel-cnt {
-        border-top: none;
         padding-top: 4rem;
+    }
+
+    .panel-cnt::before {
+        display: none;
     }
 }
 
