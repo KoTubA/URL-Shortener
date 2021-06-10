@@ -60,13 +60,19 @@
     .resources,
     .features,
     .error,
-    .panel {
+    .panel,
+    .add-link,
+    .account-settings {
         padding-left: 2rem;
         padding-right: 2rem;
     }
 
     .add-info-plus {
         display: initial;
+    }
+
+    .panel-title {
+        font-size: 2rem;
     }
 }
 
@@ -176,6 +182,11 @@
         margin-right: 2rem;
     }
 
+    .header-panel-cnt .company-logo-link {
+        margin: 0;
+        padding: 0;
+    }
+
     .nav {
         display: flex;
         align-items: center;
@@ -246,6 +257,12 @@
     .header {
         padding-top: 3rem;
         padding-right: 3rem;
+    }
+
+    .header-panel {
+        padding: 0;
+        height: 100vh;
+        background-color: map-get($map: $primary, $key: white-color);
     }
 
     .shorten-link-cnt {
@@ -387,6 +404,41 @@
     .error-title {
         font-size: 3rem;
     }
+
+    .panel-wrapper {
+        flex-direction: row;
+    }
+
+    .header-panel-cnt {
+        flex-direction: column;
+        height: 100%;
+        width: 7rem;
+        padding: 2rem 0rem;
+        border-right: 1px solid map-get($map: $neutral, $key: gray-blue);
+    }
+
+    .panel-cnt {
+        max-width: 800px;
+    }
+
+    .header-panel-home {
+        padding: 0rem 2rem;
+    }
+
+    .header-panel-cnt .company-logo-link img {
+        width: 100%;
+    }
+
+    .add-link,
+    .account-settings {
+        height: 100vh;
+        padding-left: 9rem;
+    }
+
+    .panel-cnt {
+        border-top: none;
+        padding-top: 4rem;
+    }
 }
 
 @media (min-width: 960px) {
@@ -404,6 +456,10 @@
     .panel {
         padding-left: 4rem;
         padding-right: 4rem;
+    }
+
+    .header-panel {
+        padding: 0;
     }
 
     .intro {
@@ -500,6 +556,10 @@
     .panel {
         padding-left: 5rem;
         padding-right: 5rem;
+    }
+
+    .header-panel {
+        padding: 0;
     }
 
     .intro {
@@ -640,9 +700,12 @@
     .resources-items-cnt,
     .resources-cnt,
     .features-cnt,
-    .error-cnt,
-    .panel-cnt {
+    .error-cnt {
         max-width: 1110px;
+    }
+
+    .header-panel {
+        padding: 0;
     }
 
     .advanced-statistics-cnt {

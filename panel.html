@@ -12,20 +12,22 @@
     <title>Shortly | URL Shortner & Link Managment</title>
 </head>
 
-<body>
+<body class="panel-wrapper">
 
-    <div class="overlay"></div>
-    <header class="header">
-        <div class="header-cnt">
-            <a href="/" class="company-logo-link">
-                <img src="images/logo.svg" alt="company logo" class="company-logo">
-            </a>
-            <button class="mobile-nav-toogle">
+    <header class="header header-panel">
+        <div class="header-cnt header-panel-cnt">
+            <div class="header-panel-home">
+                <a href="/" class="company-logo-link">
+                    <img src="images/logo-icon.svg" alt="company logo" class="company-logo">
+                </a>
+            </div>
+            <button class="account-settings-toogle">
                 <img src="images/profile-user.svg" alt="User">
+                <img src="images/close.svg" alt="X">
             </button>
         </div>
     </header>
-    <main class="main">
+    <main class="main main-panel">
         <section class="panel">
             <div class="panel-cnt">
                 <div class="panel-nav">
@@ -48,15 +50,45 @@
                 <div class="panel-result">
                     <div class="panel-result-empty">
                         <img src="./images/undraw_empty_xct9.svg" alt="">
-                        <h1 class="panel-title">There is nothing here.</h1>
+                        <h2 class="panel-title">There is nothing here.</h2>
                         <h2 class="panel-description">Create an link by clicking the <span>New</span> button and get
                             started.</h2>
                     </div>
                 </div>
             </div>
         </section>
+        <section class="add-link">
+            <form class="form-system form-panel" action="#" method="POST">
+                <h2 class="add-link-title">Create Link</h2>
+                <div class="form-fileds">
+                    <label class="form-label" for="username">Long link</label>
+                    <input class="form-control" type="text" name="username" autocomplete="username email"
+                        autocorrect="off" autocapitalize="none">
+                    <span class="error-message hidden"></span>
+                </div>
+                <div class="form-action-buttons">
+                    <button type="button"
+                        class="main-btn form-btn panel-btn no-fill-btn add-link-disable">Discard</button>
+                    <button class="main-btn form-btn panel-btn">Create</button>
+                </div>
+            </form>
+        </section>
+        <section class="account-settings">
+            <nav class="account-settings-nav">
+                <ul class="account-settings-nav-items">
+                    <li class="account-settings-nav-item"><a href="#">Profile Settings</a></li>
+                    <li class="account-settings-nav-item"><a href="#">Help Center</a></li>
+                    <li class="account-settings-nav-item"><a href="#">Change Plan</a></li>
+                    <li class="account-settings-nav-item"><a href="#">Account Settings</a></li>
+                </ul>
+            </nav>
+            <div class="form-action-buttons">
+                <a href="sign_out" class="main-btn account-link-btn">Log Out</a>
+            </div>
+        </section>
+        <div class="overlay overlay-panel"></div>
     </main>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/panel.js"></script>
 </body>
 
 </html>

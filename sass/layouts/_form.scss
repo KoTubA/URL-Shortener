@@ -25,7 +25,6 @@
 
 .form-control {
     @extend %flexbox;
-    flex: 1 1 100%;
     border: 1px solid map-get($map: $neutral, $key: grayish-violet);
     border-radius: 0.2rem;
     padding: 0.7rem 0.8rem;

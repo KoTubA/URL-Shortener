@@ -6,6 +6,7 @@
 .panel {
     padding: 0rem 1.25rem;
     @extend %flexbox;
+    width: 100%;
 }
 
 .panel-cnt {
@@ -23,11 +24,12 @@
     justify-content: space-between;
 }
 
-.panel-title {
+.panel-title,
+.add-link-title {
     @include title;
     margin: 0;
     line-height: 1.25;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
 }
 
 .panel-nav-info {
@@ -45,7 +47,7 @@
 }
 
 .panel-result {
-    padding-top: 2rem;
+    padding-top: 3rem;
 }
 
 .panel-result-empty {
@@ -77,4 +79,140 @@
 
 .add-info-plus {
     display: none;
+}
+
+.main-panel {
+    position: relative;
+    overflow-y: visible;
+    align-items: flex-start;
+    justify-content: center;
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.add-link,
+.account-settings {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 40rem;
+    height: calc(100% - 6.2rem);
+    background-color: map-get($map: $primary, $key: white-color);
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 1.25rem;
+    transform: translateX(-100%);
+    z-index: 3;
+    transition: transform 0.5s cubic-bezier(0.19, 0.56, 0.44, 1.12) 0s;
+}
+
+.add-link-visible,
+.account-settings-visible {
+    transform: translateX(0%);
+}
+
+.add-link-title {
+    text-align: left;
+    padding-bottom: 1rem;
+}
+
+.panel-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-panel {
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 40rem;
+}
+
+.form-action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    padding: 2rem 0rem;
+}
+
+.form-fileds,
+.account-settings-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-settings {
+    display: grid;
+    grid-template-rows: 1fr min-content;
+    grid-template-columns: 1fr;
+}
+
+.account-settings-nav,
+.form-panel {
+    padding-top: 1.5rem;
+}
+
+.account-settings-nav-items {
+    @extend %nav;
+    padding-bottom: 0;
+}
+
+.account-settings-nav-item {
+    width: 100%;
+}
+
+.account-settings-nav-item a {
+    color: map-get($map: $neutral, $key: grayish-violet);
+    margin: 0.4rem 0rem;
+    padding: 0.6rem 0rem;
+    @extend %flexbox;
+    width: 100%;
+    font-weight: map-get($map: $font-weight, $key: heavy);
+    transition: color 0.15s ease-in-out;
+}
+
+.account-settings-nav-item a:hover {
+    color: map-get($map: $neutral, $key: very-dark-blue);
+}
+
+.account-settings-toogle img {
+    width: 28px;
+    height: 28px;
+}
+
+.account-settings-toogle img:last-child {
+    display: none;
+}
+
+.account-settings-toogle-visible img:last-child {
+    display: flex;
+}
+
+.account-settings-toogle-visible img:first-child {
+    display: none;
+}
+
+.header-panel {
+    height: 5rem;
+    z-index: 4;
+}
+
+.header-panel-home a {
+    padding: 0;
+    width: fit-content;
+}
+
+.header-panel-cnt .company-logo-link img {
+    max-height: 33px;
+}
+
+.header-panel-home {
+    @extend %flexbox;
+}
+
+.overlay-panel {
+    background-color: rgba(0, 0, 0, 0.1);
 }

@@ -1,16 +1,17 @@
-button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .error, .error-cnt, .error-description-cnt, .features, .features-cnt,
+button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .account-settings-nav-item a, .header-panel-home, .error, .error-cnt, .error-description-cnt, .features, .features-cnt,
 .features-cards,
 .features-card,
 .features-card-section, .features-card-img, .resources, .resources-cnt, .illustration-resources, .resources-description-cnt, .resources-items, .resources-items-filter, .resources-item, .resources-item-img, .resources-item-section, .pricing, .pricing-cnt, .pricing-cards, .pricing-switch-cost-data, .pricing-switch-text, .compare-cnt, .comapre-table-features,
 .comapre-table-data, .summary, .summary-cnt, .intro, .intro-cnt, .info-description-cnt, .form, .form-cnt, .form-control, .terms-and-conditions, .advanced-statistics, .advanced-statistics-cnt, .statistics-cards, .statistics-card, .statistics-card-icon, .shorten-link, .shorten-link-cnt, .header, .nav-item a,
-.side-nav-btn, .side-nav-items, .footer, .footer-cnt, .footer-nav, .add-btn, .rescources-items-filter-list, .container-nav-items, .footer-nav-items,
+.side-nav-btn, .side-nav-items, .footer, .footer-cnt, .footer-nav, .add-btn, .panel-btn, .account-settings-nav-items, .rescources-items-filter-list, .container-nav-items, .footer-nav-items,
 .footer-social-media-items {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.panel-title, .error-title, .features-card-title, .resources-title,
+.panel-title,
+.add-link-title, .error-title, .features-card-title, .resources-title,
 .resources-item-title, .resources-category,
 .resources-item-category, .rescources-items-filter-title, .compare-title, .summary-title, .info-title, .form-title, .advanced-statistics-title, .statistics-card-title {
   font-weight: 700;
@@ -22,7 +23,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .e
   color: #9e9aa7;
 }
 
-.rescources-items-filter-list, .container-nav-items, .footer-nav-items,
+.account-settings-nav-items, .rescources-items-filter-list, .container-nav-items, .footer-nav-items,
 .footer-social-media-items {
   list-style-type: none;
   margin: 0;
@@ -64,7 +65,8 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .e
 .shorten-link-btn,
 .pricing-link-btn,
 .pricing-link-btn-opposed,
-.watch-now-btn {
+.watch-now-btn,
+.account-link-btn {
   width: 100%;
   border-radius: 0.5rem;
   margin-top: 1rem;
@@ -114,6 +116,20 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .e
 
 .main-btn-add span {
   font-size: 1rem;
+}
+
+.panel-btn {
+  flex: 1 1 100%;
+}
+
+.no-fill-btn {
+  background-color: transparent;
+  color: #2acfcf;
+  border: 1px solid #2acfcf;
+}
+
+.main-btn-add svg path {
+  transition: fill 0.15s ease-in-out;
 }
 
 .main-link {
@@ -298,7 +314,6 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .e
 }
 
 .form-control {
-  flex: 1 1 100%;
   border: 1px solid #9e9aa7;
   border-radius: 0.2rem;
   padding: 0.7rem 0.8rem;
@@ -1100,6 +1115,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .e
 
 .panel {
   padding: 0rem 1.25rem;
+  width: 100%;
 }
 
 .panel-cnt {
@@ -1115,11 +1131,12 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .e
   justify-content: space-between;
 }
 
-.panel-title {
+.panel-title,
+.add-link-title {
   color: #35323e;
   margin: 0;
   line-height: 1.25;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 
 .panel-nav-info {
@@ -1135,7 +1152,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .e
 }
 
 .panel-result {
-  padding-top: 2rem;
+  padding-top: 3rem;
 }
 
 .panel-result-empty {
@@ -1166,6 +1183,136 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .e
 
 .add-info-plus {
   display: none;
+}
+
+.main-panel {
+  position: relative;
+  overflow-y: visible;
+  align-items: flex-start;
+  justify-content: center;
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.add-link,
+.account-settings {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 40rem;
+  height: calc(100% - 6.2rem);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 1.25rem;
+  transform: translateX(-100%);
+  z-index: 3;
+  transition: transform 0.5s cubic-bezier(0.19, 0.56, 0.44, 1.12) 0s;
+}
+
+.add-link-visible,
+.account-settings-visible {
+  transform: translateX(0%);
+}
+
+.add-link-title {
+  text-align: left;
+  padding-bottom: 1rem;
+}
+
+.panel-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-panel {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  grid-template-columns: 1fr;
+  width: 100%;
+  max-width: 40rem;
+}
+
+.form-action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  padding: 2rem 0rem;
+}
+
+.form-fileds,
+.account-settings-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-settings {
+  display: grid;
+  grid-template-rows: 1fr min-content;
+  grid-template-columns: 1fr;
+}
+
+.account-settings-nav,
+.form-panel {
+  padding-top: 1.5rem;
+}
+
+.account-settings-nav-items {
+  padding-bottom: 0;
+}
+
+.account-settings-nav-item {
+  width: 100%;
+}
+
+.account-settings-nav-item a {
+  color: #9e9aa7;
+  margin: 0.4rem 0rem;
+  padding: 0.6rem 0rem;
+  width: 100%;
+  font-weight: 700;
+  transition: color 0.15s ease-in-out;
+}
+
+.account-settings-nav-item a:hover {
+  color: #35323e;
+}
+
+.account-settings-toogle img {
+  width: 28px;
+  height: 28px;
+}
+
+.account-settings-toogle img:last-child {
+  display: none;
+}
+
+.account-settings-toogle-visible img:last-child {
+  display: flex;
+}
+
+.account-settings-toogle-visible img:first-child {
+  display: none;
+}
+
+.header-panel {
+  height: 5rem;
+  z-index: 4;
+}
+
+.header-panel-home a {
+  padding: 0;
+  width: fit-content;
+}
+
+.header-panel-cnt .company-logo-link img {
+  max-height: 33px;
+}
+
+.overlay-panel {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 body,
@@ -1234,13 +1381,19 @@ a {
 .resources,
 .features,
 .error,
-.panel {
+.panel,
+.add-link,
+.account-settings {
     padding-left: 2rem;
     padding-right: 2rem;
   }
 
   .add-info-plus {
     display: initial;
+  }
+
+  .panel-title {
+    font-size: 2rem;
   }
 }
 @media (min-width: 700px) {
@@ -1348,6 +1501,11 @@ a {
     margin-right: 2rem;
   }
 
+  .header-panel-cnt .company-logo-link {
+    margin: 0;
+    padding: 0;
+  }
+
   .nav {
     display: flex;
     align-items: center;
@@ -1418,6 +1576,12 @@ a {
   .header {
     padding-top: 3rem;
     padding-right: 3rem;
+  }
+
+  .header-panel {
+    padding: 0;
+    height: 100vh;
+    background-color: #ffffff;
   }
 
   .shorten-link-cnt {
@@ -1559,6 +1723,41 @@ a {
   .error-title {
     font-size: 3rem;
   }
+
+  .panel-wrapper {
+    flex-direction: row;
+  }
+
+  .header-panel-cnt {
+    flex-direction: column;
+    height: 100%;
+    width: 7rem;
+    padding: 2rem 0rem;
+    border-right: 1px solid #eef0f6;
+  }
+
+  .panel-cnt {
+    max-width: 800px;
+  }
+
+  .header-panel-home {
+    padding: 0rem 2rem;
+  }
+
+  .header-panel-cnt .company-logo-link img {
+    width: 100%;
+  }
+
+  .add-link,
+.account-settings {
+    height: 100vh;
+    padding-left: 9rem;
+  }
+
+  .panel-cnt {
+    border-top: none;
+    padding-top: 4rem;
+  }
 }
 @media (min-width: 960px) {
   .header,
@@ -1575,6 +1774,10 @@ a {
 .panel {
     padding-left: 4rem;
     padding-right: 4rem;
+  }
+
+  .header-panel {
+    padding: 0;
   }
 
   .intro {
@@ -1670,6 +1873,10 @@ a {
 .panel {
     padding-left: 5rem;
     padding-right: 5rem;
+  }
+
+  .header-panel {
+    padding: 0;
   }
 
   .intro {
@@ -1808,9 +2015,12 @@ a {
 .resources-items-cnt,
 .resources-cnt,
 .features-cnt,
-.error-cnt,
-.panel-cnt {
+.error-cnt {
     max-width: 1110px;
+  }
+
+  .header-panel {
+    padding: 0;
   }
 
   .advanced-statistics-cnt {
