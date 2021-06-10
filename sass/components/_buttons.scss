@@ -100,6 +100,14 @@
     border: 1px solid map-get($map: $primary, $key: cyan-color);
 }
 
+.panel-btn.no-fill-btn:hover {
+    background-color: map-get($map: $neutral, $key: lighter-cyan);
+}
+
 .main-btn-add svg path {
     transition: fill 0.15s ease-in-out;
+}
+
+.panel-result-link-data-btn:hover {
+    background-color: map-get($map: $neutral, $key: lighter-cyan);
 }
