@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (classItem === "-all-types") classItem = "";
-        console.log(".resources-item" + classItem);
 
         const resources_items = document.querySelectorAll(".resources-item" + classItem);
         for (let ele of resources_items) {
