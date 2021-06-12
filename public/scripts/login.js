@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const form_registration = document.querySelector("#form-registration"),
+    const form_login = document.querySelector("#form-login"),
         name = document.querySelector("[name='username']"),
-        email = document.querySelector("[name='email']"),
         password = document.querySelector("[name='password']"),
         error_message = document.querySelectorAll(".error-message"),
         form_control = document.querySelectorAll(".form-control"),
         form_feedback = document.querySelector(".form-feedback");
 
-    form_registration.addEventListener("submit", (e) => {
+    form_login.addEventListener("submit", (e) => {
         e.preventDefault();
 
         for (let ele of error_message) {
@@ -20,31 +19,35 @@ document.addEventListener("DOMContentLoaded", () => {
         form_feedback.classList.remove("form-feedback-error", "form-feedback-success");
         form_feedback.innerText = "";
 
-        fetch("../controllers/registration.php", {
+        fetch("../controllers/login.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 name: name.value,
-                email: email.value,
                 password: password.value,
             }),
         })
             .then((res) => res.json())
             .then((res) => {
+                console.log(res);
                 if (res.success) {
                     if (res.data.hasOwnProperty("success")) {
-                        form_feedback.classList.add("form-feedback-success");
-                        form_feedback.innerText = res.data["success"];
-                        name.value = "";
-                        email.value = "";
-                        password.value = "";
+                        window.location.href = "panel";
                     } else {
                         for (var key in res.data) {
                             document.querySelector("." + key).classList.add("error-message-visible");
                             document.querySelector("." + key).previousElementSibling.classList.add("form-control-error");
                             document.querySelector("." + key).previousElementSibling.previousElementSibling.classList.add("form-label-error");
+                            document
+                                .querySelector("." + key)
+                                .previousElementSibling.previousElementSibling.previousElementSibling.classList.add("form-control-error");
+                            document
+                                .querySelector("." + key)
+                                .previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.classList.add(
+                                    "form-label-error"
+                                );
                             document.querySelector("." + key).innerText = res.data[key];
                         }
                     }

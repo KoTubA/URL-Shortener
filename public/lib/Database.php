@@ -88,5 +88,32 @@ class Database{
     return true;
   }
 
+  public function Login($login, $password)
+  {
+    $sql = "SELECT id, name, email, password FROM users WHERE name = :login OR email = :login";
+    $stmt = $this->dbh->prepare($sql);
+    $stmt->bindParam(":login", $login);
+
+    try {
+      $stmt->execute();
+    } catch(PDOException $e) {
+      $this->error = "Error: ".$e->getCode();
+      return false;
+    }
+
+    if(!$stmt) {
+      $this->error = "Something go wrong.";
+      return false;
+    }
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    $number_of_rows = $stmt->rowCount();
+
+    if($number_of_rows!=1 ||!password_verify($password, $user["password"])) {
+      return false;
+    }
+
+    return $user;
+  }
 
 }
