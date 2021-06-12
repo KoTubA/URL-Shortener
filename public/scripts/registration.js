@@ -34,12 +34,15 @@ document.addEventListener("DOMContentLoaded", () => {
             .then((res) => res.json())
             .then((res) => {
                 if (res.success) {
-                    if (res.data.hasOwnProperty("success")) {
-                        form_feedback.classList.add("form-feedback-success");
-                        form_feedback.innerText = res.data["success"];
-                        name.value = "";
-                        email.value = "";
-                        password.value = "";
+                    form_feedback.classList.add("form-feedback-success");
+                    form_feedback.innerText = res["data"];
+                    name.value = "";
+                    email.value = "";
+                    password.value = "";
+                } else {
+                    if (res.data.hasOwnProperty("error")) {
+                        form_feedback.classList.add("form-feedback-error");
+                        form_feedback.innerText = res.data["error"];
                     } else {
                         for (var key in res.data) {
                             document.querySelector("." + key).classList.add("error-message-visible");
@@ -48,9 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
                             document.querySelector("." + key).innerText = res.data[key];
                         }
                     }
-                } else {
-                    form_feedback.classList.add("form-feedback-error");
-                    form_feedback.innerText = res.data["error"];
                 }
             })
             .catch((error) => {

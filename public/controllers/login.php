@@ -30,14 +30,13 @@
       exit();
     }
     else if($result==false) {
-      $errors["success"] = true;
+      $errors["success"] = false;
       $errors["data"]["data-error"] = "Invalid login or password.";
       echo json_encode($errors);
       exit();
     }
     else {
       $errors["success"] = true;
-      $errors["data"]["success"] = "";
       $_SESSION['online'] = true;
       $_SESSION['id'] = $result['id'];
       $_SESSION['name'] = $result['name'];

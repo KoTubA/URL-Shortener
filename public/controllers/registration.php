@@ -31,7 +31,7 @@
     require_once("../helpers/emptyArray.php");
 
     if(!emptyArray($errors)) {
-      $errors["success"] = true;
+      $errors["success"] = false;
       echo json_encode($errors);
       exit();
     }
@@ -46,7 +46,7 @@
       exit();
     }
     else if ($resultCheck>0) {
-      $errors["success"] = true;
+      $errors["success"] = false;
       $errors["data"]["email-error"] = "An account with that email already exists.";
       echo json_encode($errors);
       exit();
@@ -63,7 +63,7 @@
     }
 
     $errors["success"] = true;
-    $errors["data"]["success"] = "An account has been created";
+    $errors["data"] = "An account has been created";
     echo json_encode($errors);
 
     exit();
