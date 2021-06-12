@@ -325,6 +325,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .a
   border: 1px solid #9e9aa7;
   border-radius: 0.2rem;
   padding: 0.7rem 0.8rem;
+  font-size: 0.9rem;
   outline: none;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -337,8 +338,29 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .a
 .form-label {
   color: #6b6c70;
   font-weight: 400;
-  padding: 1.5rem 0rem 0.5rem 0rem;
+  padding: 1rem 0rem 0.5rem 0rem;
   font-size: 1rem;
+}
+
+.error-message {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #f46262;
+  visibility: hidden;
+}
+
+.error-message-visible {
+  visibility: visible;
+}
+
+.form-control-error {
+  border: 1px solid #f46262;
+  box-shadow: 0 0 0 0.2rem rgba(244, 98, 98, 0.25);
+}
+
+.form-label-error {
+  color: #f46262;
 }
 
 .form-link {
