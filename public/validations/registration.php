@@ -46,13 +46,14 @@
       exit();
     }
     else if ($resultCheck>0) {
-      $errors["success"] = false;
-      $errors["data"]["error"] = "Email already exists";
+      $errors["success"] = true;
+      $errors["data"]["email-error"] = "An account with that email already exists.";
       echo json_encode($errors);
       exit();
     }
 
     $resultCheck = $db->createAccount($name, $email, $password);
+    $error = $db->getError();
 
     if(!$resultCheck) {
       $errors["success"] = false;

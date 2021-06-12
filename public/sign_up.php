@@ -83,7 +83,7 @@
     </section>
   </main>
   <script src="scripts/main.js"></script>
-  <script src="scripts/login.js"></script>
+  <script src="scripts/registration.js"></script>
 </body>
 
 </html>

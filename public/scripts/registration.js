@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         form_feedback.classList.remove("form-feedback-error", "form-feedback-success");
         form_feedback.innerText = "";
 
-        fetch("../validations/login.php", {
+        fetch("../validations/registration.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
