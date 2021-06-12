@@ -6,12 +6,13 @@ $primary: (
 );
 
 $secondary: (
+    "red-bg": hsl(0, 100%, 95%),
     "red-color": hsl(0, 87%, 67%),
     "red-shadow": hsla(0, 87%, 67%, 0.25),
 );
 
 $neutral: (
-    "lighter-cyan": hsl(180, 100%, 93%),
+    "light-cyan-bg": hsl(180, 100%, 95%),
     "light-cyan": hsl(180, 57%, 75%),
     "gray-blue": hsl(225, 31%, 95%),
     "gray-color": hsl(0, 0%, 75%),

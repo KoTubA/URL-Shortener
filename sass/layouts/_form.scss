@@ -23,6 +23,29 @@
     font-size: 1rem;
 }
 
+.form-feedback {
+    font-size: 1rem;
+    font-weight: map-get($map: $font-weight, $key: lighter);
+    color: map-get($map: $secondary, $key: red-color);
+    visibility: hidden;
+    padding: 0.5rem;
+    @extend %flexbox;
+}
+
+.form-feedback-error {
+    border: 1px solid map-get($map: $secondary, $key: red-color);
+    color: map-get($map: $secondary, $key: red-color);
+    background-color: map-get($map: $secondary, $key: red-bg);
+    visibility: visible;
+}
+
+.form-feedback-success {
+    border: 1px solid map-get($map: $primary, $key: cyan-color);
+    color: map-get($map: $primary, $key: cyan-color);
+    background-color: map-get($map: $neutral, $key: light-cyan-bg);
+    visibility: visible;
+}
+
 .form-control {
     @extend %flexbox;
     border: 1px solid map-get($map: $neutral, $key: grayish-violet);

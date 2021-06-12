@@ -2,7 +2,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .a
 .features-cards,
 .features-card,
 .features-card-section, .features-card-img, .resources, .resources-cnt, .illustration-resources, .resources-description-cnt, .resources-items, .resources-items-filter, .resources-item, .resources-item-img, .resources-item-section, .pricing, .pricing-cnt, .pricing-cards, .pricing-switch-cost-data, .pricing-switch-text, .compare-cnt, .comapre-table-features,
-.comapre-table-data, .summary, .summary-cnt, .intro, .intro-cnt, .info-description-cnt, .form, .form-cnt, .form-control, .terms-and-conditions, .advanced-statistics, .advanced-statistics-cnt, .statistics-cards, .statistics-card, .statistics-card-icon, .shorten-link, .shorten-link-cnt, .header, .nav-item a,
+.comapre-table-data, .summary, .summary-cnt, .intro, .intro-cnt, .info-description-cnt, .form, .form-cnt, .form-feedback, .form-control, .terms-and-conditions, .advanced-statistics, .advanced-statistics-cnt, .statistics-cards, .statistics-card, .statistics-card-icon, .shorten-link, .shorten-link-cnt, .header, .nav-item a,
 .side-nav-btn, .side-nav-items, .footer, .footer-cnt, .footer-nav, .add-btn, .panel-btn, .account-settings-nav-items, .rescources-items-filter-list, .container-nav-items, .footer-nav-items,
 .footer-social-media-items {
   display: flex;
@@ -129,7 +129,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .a
 }
 
 .panel-btn.no-fill-btn:hover {
-  background-color: #dbffff;
+  background-color: #e6ffff;
 }
 
 .main-btn-add svg path {
@@ -137,7 +137,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .a
 }
 
 .panel-result-link-data-btn:hover {
-  background-color: #dbffff;
+  background-color: #e6ffff;
 }
 
 .main-link {
@@ -319,6 +319,28 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .a
   max-width: 450px;
   margin-top: 1rem;
   font-size: 1rem;
+}
+
+.form-feedback {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #f46262;
+  visibility: hidden;
+  padding: 0.5rem;
+}
+
+.form-feedback-error {
+  border: 1px solid #f46262;
+  color: #f46262;
+  background-color: #ffe6e6;
+  visibility: visible;
+}
+
+.form-feedback-success {
+  border: 1px solid #2acfcf;
+  color: #2acfcf;
+  background-color: #e6ffff;
+  visibility: visible;
 }
 
 .form-control {

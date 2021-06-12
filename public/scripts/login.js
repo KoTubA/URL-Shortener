@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
         email = document.querySelector("[name='email']"),
         password = document.querySelector("[name='password']"),
         error_message = document.querySelectorAll(".error-message"),
-        form_control = document.querySelectorAll(".form-control");
+        form_control = document.querySelectorAll(".form-control"),
+        form_feedback = document.querySelector(".form-feedback");
 
     form_login.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -15,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
             ele.previousElementSibling.previousElementSibling.classList.remove("form-label-error");
             ele.innerText = "";
         }
+
+        form_feedback.classList.remove("form-feedback-error", "form-feedback-success");
+        form_feedback.innerText = "";
 
         fetch("../validations/login.php", {
             method: "POST",
@@ -29,10 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
         })
             .then((res) => res.json())
             .then((res) => {
-                console.log(res);
                 if (res.success) {
                     if (res.data.hasOwnProperty("success")) {
-                        console.log(res.data["success"]);
+                        form_feedback.classList.add("form-feedback-success");
+                        form_feedback.innerText = res.data["success"];
+                        name.value = "";
+                        email.value = "";
+                        password.value = "";
                     } else {
                         for (var key in res.data) {
                             document.querySelector("." + key).classList.add("error-message-visible");
@@ -42,7 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     }
                 } else {
-                    console.log(res.data["error"]);
+                    form_feedback.classList.add("form-feedback-error");
+                    form_feedback.innerText = res.data["error"];
                 }
             })
             .catch((error) => {
@@ -58,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     for (let ele of form_control) {
-        ele.addEventListener("click", remove_error);
+        ele.addEventListener("focus", remove_error);
     }
 
     function remove_error() {

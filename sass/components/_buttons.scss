@@ -101,7 +101,7 @@
 }
 
 .panel-btn.no-fill-btn:hover {
-    background-color: map-get($map: $neutral, $key: lighter-cyan);
+    background-color: map-get($map: $neutral, $key: light-cyan-bg);
 }
 
 .main-btn-add svg path {
@@ -109,5 +109,5 @@
 }
 
 .panel-result-link-data-btn:hover {
-    background-color: map-get($map: $neutral, $key: lighter-cyan);
+    background-color: map-get($map: $neutral, $key: light-cyan-bg);
 }

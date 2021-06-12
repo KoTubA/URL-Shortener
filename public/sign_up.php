@@ -53,6 +53,7 @@
         <h2 class="form-title">Sign up and start shortening</h2>
         <p class="form-description">Already have an account? <a href="sign_in.html" class="main-link">Login in</a></p>
         <form id="form-login" class="form-system" method="POST">
+          <div class="form-feedback"></div>
           <label class="form-label" for="username">Username</label>
           <input class="form-control" type="text" name="username" autocomplete="username" autocorrect="off"
             autocapitalize="none">
