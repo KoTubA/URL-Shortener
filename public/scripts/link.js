@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         panel_result_empty.classList.add("panel-result-feedback-visible");
                     }
                 }
+            })
+            .catch((error) => {
+                console.log(error);
             });
-        //.catch((error) => {
-        //console.log(error);
-        //});
     }
     fetch_links();
 });

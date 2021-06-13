@@ -59,16 +59,7 @@
                     </button>
                 </div>
                 <div class="panel-result">
-                    <div class="panel-result-feedback panel-result-cnt">
-                        <div class="panel-result-counter">
-                            <span>Total Links: <span class="bold-text">10</span> & total Clicks: <span
-                                    class="bold-text">140</span></span>
-                            <a href="#" class="main-link">Clear All</a>
-                        </div>
-                        <div class="panel-result-links-wrapper">
-                            <div class="panel-result-links"></div>
-                        </div>
-                    </div>
+                    <div class="panel-result-feedback panel-result-cnt"></div>
                     <div class="panel-result-feedback panel-result-empty">
                         <img src="./images/undraw_empty_xct9.svg" alt="">
                         <h2 class="panel-title">There is nothing here.</h2>
