@@ -92,7 +92,7 @@ class Database{
   {
     $sql = "SELECT id, name, email, password FROM users WHERE name = :login OR email = :login";
     $stmt = $this->dbh->prepare($sql);
-    $stmt->bindParam(":login", $login);
+    $stmt->bindParam(":login", $login, PDO::PARAM_STR);
 
     try {
       $stmt->execute();
@@ -117,9 +117,9 @@ class Database{
   }
 
   public function getLink($id) {
-    $sql = "SELECT short_url, long_url, current_url, creation_date, clicks FROM urls WHERE user_id = :id";
+    $sql = "SELECT original_url, short_url, long_url, creation_date, clicks FROM urls WHERE user_id = :id";
     $stmt = $this->dbh->prepare($sql);
-    $stmt->bindParam(":id", $id);
+    $stmt->bindParam(":id", $id , PDO::PARAM_INT);
 
     try {
       $stmt->execute();
@@ -141,6 +141,53 @@ class Database{
     }
 
     return $links;
+  }
+
+  public function deleteLink($user_id, $original_url) {
+    $sql = "DELETE FROM urls WHERE original_url = :original_url AND user_id = :user_id";
+    $stmt = $this->dbh->prepare($sql);
+    $stmt->bindParam(":original_url", $original_url, PDO::PARAM_STR);
+    $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+
+    try {
+      $stmt->execute();
+    } catch(PDOException $e) {
+      $this->error = "Error: ".$e->getCode();
+      return false;
+    }
+
+    if(!$stmt) {
+      $this->error = "Something went wrong.";
+      return false;
+    }
+
+    $number_of_rows = $stmt->rowCount();
+
+    if($number_of_rows==0) {
+      return false;
+    }
+
+    return true;
+  }
+
+  public function deleteAllLinks($user_id) {
+    $sql = "DELETE FROM urls WHERE user_id = :user_id";
+    $stmt = $this->dbh->prepare($sql);
+    $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+
+    try {
+      $stmt->execute();
+    } catch(PDOException $e) {
+      $this->error = "Error: ".$e->getCode();
+      return false;
+    }
+
+    if(!$stmt) {
+      $this->error = "Something went wrong.";
+      return false;
+    }
+
+    return true;
   }
 
 }

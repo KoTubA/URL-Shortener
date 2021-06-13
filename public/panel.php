@@ -109,6 +109,8 @@
         </section>
         <div class="overlay overlay-panel"></div>
     </main>
+    <div class="delete-feedback-error"></div>
+    <div class="overlay overlay-notification"></div>
     <script src="scripts/panel.js"></script>
     <script src="scripts/link.js"></script>
 </body>

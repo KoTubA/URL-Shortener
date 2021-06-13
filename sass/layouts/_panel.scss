@@ -145,6 +145,8 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
+    justify-content: center;
 }
 
 .form-panel {
@@ -237,7 +239,8 @@
     @extend %flexbox;
 }
 
-.overlay-panel {
+.overlay-panel,
+.overlay-notification {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -271,7 +274,7 @@
 .panel-result-link-row {
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: 1fr 2fr 1fr 100px 150px;
+    grid-template-columns: 2fr 2fr 1fr 100px 150px;
     justify-items: center;
     align-items: center;
 }
@@ -344,4 +347,42 @@
 
 .panel-result-feedback.panel-result-feedback-visible {
     display: flex;
+}
+
+.overlay-notification {
+    z-index: 6;
+}
+
+.delete-link-notification {
+    position: absolute;
+    top: 25%;
+    background-color: map-get($map: $primary, $key: white-color);
+    padding: 2rem 3rem;
+    z-index: 7;
+    border: 1px solid map-get($map: $neutral, $key: gray-color);
+    border-radius: 0.2rem;
+}
+
+.form-action-buttons-notification {
+    padding-bottom: 0rem;
+}
+
+.panel-description-notification {
+    margin-top: 0.5rem;
+}
+
+.delete-feedback-error {
+    position: absolute;
+    z-index: 10;
+    border: 1px solid map-get($map: $secondary, $key: red-color);
+    color: map-get($map: $secondary, $key: red-color);
+    background-color: map-get($map: $secondary, $key: red-bg);
+    padding: 1rem 2rem;
+    display: none;
+    font-size: 0.9rem;
+}
+
+.delete-feedback-error-visible {
+    display: flex;
+    animation: show_alert 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }

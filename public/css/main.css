@@ -1174,6 +1174,14 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
     transform: rotate(360deg);
   }
 }
+@keyframes show_alert {
+  0% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(25px);
+  }
+}
 .panel {
   padding: 0rem 1.25rem;
   width: 100%;
@@ -1309,6 +1317,8 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  justify-content: center;
 }
 
 .form-panel {
@@ -1395,7 +1405,8 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
   max-height: 33px;
 }
 
-.overlay-panel {
+.overlay-panel,
+.overlay-notification {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -1429,7 +1440,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
 .panel-result-link-row {
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 2fr 1fr 100px 150px;
+  grid-template-columns: 2fr 2fr 1fr 100px 150px;
   justify-items: center;
   align-items: center;
 }
@@ -1500,6 +1511,44 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
 
 .panel-result-feedback.panel-result-feedback-visible {
   display: flex;
+}
+
+.overlay-notification {
+  z-index: 6;
+}
+
+.delete-link-notification {
+  position: absolute;
+  top: 25%;
+  background-color: #ffffff;
+  padding: 2rem 3rem;
+  z-index: 7;
+  border: 1px solid #bfbfbf;
+  border-radius: 0.2rem;
+}
+
+.form-action-buttons-notification {
+  padding-bottom: 0rem;
+}
+
+.panel-description-notification {
+  margin-top: 0.5rem;
+}
+
+.delete-feedback-error {
+  position: absolute;
+  z-index: 10;
+  border: 1px solid #f46262;
+  color: #f46262;
+  background-color: #ffe6e6;
+  padding: 0.5rem 2rem;
+  display: none;
+  font-size: 0.9rem;
+}
+
+.delete-feedback-error-visible {
+  display: flex;
+  animation: show_alert 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 body,
@@ -2148,7 +2197,7 @@ a {
   }
 
   .panel-result-link-row {
-    grid-template-columns: 1fr 2fr 1fr 100px 175px;
+    grid-template-columns: 2fr 2fr 1fr 100px 175px;
   }
 }
 @media (min-width: 1280px) {

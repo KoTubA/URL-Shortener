@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         add_link_disable = document.querySelector(".add-link-disable"),
         account_settings_toogle = document.querySelector(".account-settings-toogle"),
         account_settings = document.querySelector(".account-settings"),
-        overlay = document.querySelector(".overlay");
+        overlay = document.querySelector(".overlay-panel");
 
     main_btn_add.addEventListener("click", function () {
         add_link.classList.add("add-link-visible");

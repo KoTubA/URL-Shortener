@@ -45,20 +45,22 @@
       foreach($result as $row) {
         $number_of_links++;
         $number_of_total_clicks += $row["clicks"];
+        $hostname = $_SERVER['HTTP_HOST'];
+        $protocol = "http";
         $data = $data. <<<EOD
           <div class="panel-result-link-row">
-              <div class="panel-result-link-data">{$row['short_url']}</div>
+              <div class="panel-result-link-data">{$protocol}://{$hostname}/{$row['short_url']}</div>
               <div class="panel-result-link-data">{$row['long_url']}</div>
               <div class="panel-result-link-data">{$row['creation_date']}</div>
               <div class="panel-result-link-data">{$row['clicks']}</div>
               <div class="panel-result-link-data">
-                  <button class="panel-result-link-data-btn">
+                  <button class="panel-result-link-data-btn panel-result-link-data-btn-cpy" data-clipboard-text="{$protocol}://{$hostname}/{$row['short_url']}">
                       <img src="images/copy.svg" alt="Copy">
                   </button>
-                  <button class="panel-result-link-data-btn">
+                  <button class="panel-result-link-data-btn panel-result-link-data-btn-edit" data-original-url="{$row['original_url']}">
                       <img src="images/edit.svg" alt="Edit">
                   </button>
-                  <button class="panel-result-link-data-btn">
+                  <button class="panel-result-link-data-btn panel-result-link-data-btn-delete" data-original-url="{$row['original_url']}">
                       <img src="images/delete.svg" alt="Delete">
                   </button>
               </div>
@@ -70,7 +72,7 @@
         <div class="panel-result-counter">
             <span>Total Links: <span class="bold-text">{$number_of_links}</span> & total Clicks: <span
                     class="bold-text">{$number_of_total_clicks}</span></span>
-            <a href="#" class="main-link">Clear All</a>
+            <button class="main-link main-link-clear-all">Clear All</button>
         </div>
         <div class="panel-result-links-wrapper">
             <div class="panel-result-links">
