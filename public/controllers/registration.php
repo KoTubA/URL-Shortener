@@ -4,7 +4,7 @@
   session_start();
 
   if(isset($_SESSION['online'])) {
-    header("panel");
+    header('Location: panel');
     exit();
   }
 
@@ -14,25 +14,25 @@
     $name = $data->name;
     $email = $data->email;
     $password = $data->password;
-    $errors = [[]];
+    $r_errors = [[]];
 
     require_once("../lib/Database.php");
     $db = new Database();
     $error = $db->getError();
 
     if(!empty($error)) {
-      $errors["success"] = false;
-      $errors["data"]["error"] = $error;
-      echo json_encode($errors);
+      $r_errors["success"] = false;
+      $r_errors["data"]["error"] = $error;
+      echo json_encode($r_errors);
       exit();
     }
 
-    $errors = $db->validateData($name, $email, $password, $errors);
+    $r_errors = $db->validateData($name, $email, $password, $r_errors);
     require_once("../helpers/emptyArray.php");
 
-    if(!emptyArray($errors)) {
-      $errors["success"] = false;
-      echo json_encode($errors);
+    if(!emptyArray($r_errors)) {
+      $r_errors["success"] = false;
+      echo json_encode($r_errors);
       exit();
     }
 
@@ -40,15 +40,15 @@
     $error = $db->getError();
 
     if(!empty($error)) {
-      $errors["success"] = false;
-      $errors["data"]["error"] = $error;
-      echo json_encode($errors);
+      $r_errors["success"] = false;
+      $r_errors["data"]["error"] = $error;
+      echo json_encode($r_errors);
       exit();
     }
     else if ($resultCheck>0) {
-      $errors["success"] = false;
-      $errors["data"]["email-error"] = "An account with that email already exists.";
-      echo json_encode($errors);
+      $r_errors["success"] = false;
+      $r_errors["data"]["email-error"] = "An account with that email already exists.";
+      echo json_encode($r_errors);
       exit();
     }
 
@@ -56,15 +56,15 @@
     $error = $db->getError();
 
     if(!$resultCheck) {
-      $errors["success"] = false;
-      $errors["data"]["error"] = $error;
-      echo json_encode($errors);
+      $r_errors["success"] = false;
+      $r_errors["data"]["error"] = $error;
+      echo json_encode($r_errors);
       exit();
     }
 
-    $errors["success"] = true;
-    $errors["data"] = "An account has been created";
-    echo json_encode($errors);
+    $r_errors["success"] = true;
+    $r_errors["data"] = "An account has been created";
+    echo json_encode($r_errors);
 
     exit();
   }

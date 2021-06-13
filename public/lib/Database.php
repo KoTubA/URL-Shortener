@@ -55,7 +55,7 @@ class Database{
     }
 
     if(!$stmt) {
-      $this->error = "Something go wrong.";
+      $this->error = "Something went wrong.";
       return 0;
     }
 
@@ -81,7 +81,7 @@ class Database{
     }
 
     if(!$stmt) {
-      $this->error = "Something go wrong.";
+      $this->error = "Something went wrong.";
       return false;
     }
 
@@ -102,7 +102,7 @@ class Database{
     }
 
     if(!$stmt) {
-      $this->error = "Something go wrong.";
+      $this->error = "Something went wrong.";
       return false;
     }
 
@@ -114,6 +114,33 @@ class Database{
     }
 
     return $user;
+  }
+
+  public function getLink($id) {
+    $sql = "SELECT short_url, long_url, current_url, creation_date, clicks FROM urls WHERE user_id = :id";
+    $stmt = $this->dbh->prepare($sql);
+    $stmt->bindParam(":id", $id);
+
+    try {
+      $stmt->execute();
+    } catch(PDOException $e) {
+      $this->error = "Error: ".$e->getCode();
+      return false;
+    }
+
+    if(!$stmt) {
+      $this->error = "Something went wrong.";
+      return false;
+    }
+
+    $links = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $number_of_rows = $stmt->rowCount();
+
+    if($number_of_rows==0) {
+      return false;
+    }
+
+    return $links;
   }
 
 }

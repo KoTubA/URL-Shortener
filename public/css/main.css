@@ -1,4 +1,5 @@
-button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .account-settings-nav-item a, .header-panel-home, .panel-result-link-data, .error, .error-cnt, .error-description-cnt, .features, .features-cnt,
+button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
+.panel-result-error, .account-settings-nav-item a, .header-panel-home, .panel-result-link-data, .panel-result-loader, .error, .error-cnt, .error-description-cnt, .features, .features-cnt,
 .features-cards,
 .features-card,
 .features-card-section, .features-card-img, .resources, .resources-cnt, .illustration-resources, .resources-description-cnt, .resources-items, .resources-items-filter, .resources-item, .resources-item-img, .resources-item-section, .pricing, .pricing-cnt, .pricing-cards, .pricing-switch-cost-data, .pricing-switch-text, .compare-cnt, .comapre-table-features,
@@ -18,7 +19,8 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .a
   text-align: center;
 }
 
-.panel-description, .error-description, .features-card-description, .resources-description, .rescources-items-filter-description, .info-description, .form-description {
+.panel-description,
+.panel-error, .error-description, .features-card-description, .resources-description, .rescources-items-filter-description, .info-description, .form-description {
   text-align: center;
   color: #9e9aa7;
 }
@@ -317,7 +319,6 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .a
 .form-system {
   width: 100%;
   max-width: 450px;
-  margin-top: 1rem;
   font-size: 1rem;
 }
 
@@ -1163,6 +1164,16 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .a
   font-weight: 400;
 }
 
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 .panel {
   padding: 0rem 1.25rem;
   width: 100%;
@@ -1204,11 +1215,16 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .a
   align-items: flex-start;
 }
 
-.panel-description {
+.panel-description,
+.panel-error {
   color: #6b6c70;
   font-size: 0.9rem;
-  margin: 0;
   font-weight: 400;
+}
+
+.panel-description {
+  margin: 0;
+  min-height: 1.5rem;
 }
 
 .panel-result {
@@ -1216,26 +1232,31 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .a
   width: 100%;
 }
 
-.panel-result-empty {
+.panel-result-empty,
+.panel-result-error {
   flex-direction: column;
   display: none;
 }
 
-.panel-result-empty img {
+.panel-result-empty img,
+.panel-result-error img {
   width: 100%;
   max-width: 32rem;
   padding: 0rem 2rem;
 }
 
-.panel-result-empty .panel-title {
+.panel-result-empty .panel-title,
+.panel-result-error .panel-title {
   margin: 2rem 0rem 1rem 0rem;
 }
 
-.panel-result-empty .panel-description {
+.panel-result-empty .panel-description,
+.panel-result-error .panel-description {
   max-width: 15rem;
 }
 
-.panel-result-empty .panel-description span {
+.panel-result-empty .panel-description span,
+.panel-result-error .panel-description span {
   font-weight: 700;
 }
 
@@ -1379,7 +1400,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .a
 }
 
 .panel-result-cnt {
-  display: flex;
+  display: none;
   flex-direction: column;
   font-size: 1rem;
 }
@@ -1444,16 +1465,41 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty, .a
   height: 30px;
 }
 
-.panel-result-link-data-btn svg {
-  fill: #2acfcf;
-}
-
 .bold-text {
   font-weight: 700;
 }
 
 .panel-result-counter {
   color: #35323e;
+}
+
+.panel-result-loader {
+  position: relative;
+  padding-top: 8rem;
+}
+
+.panel-result-loader-invisible {
+  display: none;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #35323e;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 50%;
+  -webkit-animation: spinner 1s infinite linear;
+  animation: spinner 1s infinite linear;
+  position: absolute;
+}
+
+.panel_result_feedback.panel_result_feedback-visible {
+  display: flex;
+}
+
+.panel-result-feedback.panel-result-feedback-visible {
+  display: flex;
 }
 
 body,
