@@ -16,15 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
         panel_result_loader.classList.remove("panel-result-loader-invisible");
         panel_error.innerText = "";
 
-        //Remove events and children (panel_result_cnt)
-        const panel_result_link_data_btn_cpy = document.querySelectorAll(".panel-result-link-data-btn-cpy");
-        for (let ele of panel_result_link_data_btn_cpy) {
-            ele.removeEventListener("click", copy_to_clipboard);
-        }
+        //Remove all event listeners from all children
+        let old_element = document.querySelector(".panel-result-links-wrapper");
+        let new_element = old_element.cloneNode(true);
+        old_element.parentNode.replaceChild(new_element, old_element);
 
-        while (panel_result_cnt.firstChild) {
-            panel_result_cnt.removeChild(panel_result_cnt.lastChild);
-        }
+        //Remove children
+        new_element.remove();
+        document.querySelector(".panel-result-counter").remove();
 
         fetch("../controllers/getLink.php", {
             method: "POST",
@@ -203,8 +202,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function delete_all_links(e) {
         e.preventDefault();
-
-        const url = document.querySelector("[name='url']");
         clearTimeout(feedback);
         feedback_error();
 
