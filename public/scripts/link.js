@@ -18,12 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //Remove all event listeners from all children
         let old_element = document.querySelector(".panel-result-links-wrapper");
-        let new_element = old_element.cloneNode(true);
-        old_element.parentNode.replaceChild(new_element, old_element);
-
-        //Remove children
-        new_element.remove();
-        document.querySelector(".panel-result-counter").remove();
+        if (old_element != null) {
+            let new_element = old_element.cloneNode(true);
+            old_element.parentNode.replaceChild(new_element, old_element);
+            //Remove children
+            new_element.remove();
+            document.querySelector(".panel-result-counter").remove();
+        }
 
         fetch("../controllers/getLink.php", {
             method: "POST",
