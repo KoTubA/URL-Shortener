@@ -36,7 +36,8 @@
 }
 
 .panel-title,
-.add-link-title {
+.add-link-title,
+.edit-link-title {
     @include title;
     margin: 0;
     line-height: 1.25;
@@ -115,7 +116,8 @@
 }
 
 .add-link,
-.account-settings {
+.account-settings,
+.edit-link {
     position: fixed;
     left: 0;
     right: 0;
@@ -132,11 +134,13 @@
 }
 
 .add-link-visible,
-.account-settings-visible {
+.account-settings-visible,
+.edit-link-visible {
     transform: translateX(0%);
 }
 
-.add-link-title {
+.add-link-title,
+.edit-link-title {
     text-align: left;
     padding-bottom: 1rem;
 }
@@ -239,7 +243,7 @@
     @extend %flexbox;
 }
 
-.overlay-panel,
+.overlay,
 .overlay-notification {
     background-color: rgba(0, 0, 0, 0.1);
 }
@@ -309,6 +313,10 @@
     margin: 3px;
     width: 30px;
     height: 30px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .bold-text {
@@ -385,4 +393,34 @@
 .delete-feedback-error-visible {
     display: flex;
     animation: show_alert 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.edit-link-data {
+    display: flex;
+    align-self: flex-end;
+    padding: 0.5rem 1rem;
+    color: map-get($map: $neutral, $key: grayish-violet);
+    border: 1px solid map-get($map: $neutral, $key: grayish-violet);
+    border-radius: 0.2rem;
+    font-size: 0.9rem;
+}
+
+.form-info {
+    font-size: 0.8rem;
+    padding-bottom: 0.2rem;
+    margin-top: -0.5rem;
+    color: map-get($map: $primary, $key: cyan-color);
+}
+
+.form-label-with-info {
+    padding-bottom: 0.3rem;
+}
+
+.form-label-with-feedback {
+    padding-top: 0rem;
+}
+
+.form-feedback-edit {
+    margin: 0.5rem 0rem;
+    font-size: 0.9rem;
 }

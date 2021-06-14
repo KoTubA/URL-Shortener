@@ -6,10 +6,11 @@ class Database{
   private $dbname = "shortly";
 
   private $dbh;
-  private $error;
+  private $error = false;
 
   public function __construct()
   {
+    $this->error = "";
     $dsn = "mysql:host={$this->host};dbname={$this->dbname}";
 
     $options = array(
@@ -28,8 +29,8 @@ class Database{
   }
 
   public function validateData($name, $email, $password, $errors) {
-
-    if (!preg_match('/[A-Za-z0-9]{4,32}/', $name)) {
+    $this->error = "";
+    if (!preg_match('/^[a-zA-Z0-9]{4,32}$/', $name)) {
         $errors["data"]["name-error"] = "Letter & numbers only. 4–32 characters.";
     }
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -43,6 +44,7 @@ class Database{
   }
 
   public function mailExist($email) {
+    $this->error = "";
     $sql = "SELECT * FROM users WHERE email = :email";
     $stmt = $this->dbh->prepare($sql);
     $stmt->bindParam(":email", $email, PDO::PARAM_STR);
@@ -64,6 +66,7 @@ class Database{
   }
 
   public function createAccount($name, $email, $password) {
+    $this->error = "";
     $options = ['cost' => 12];
     $hash_password = password_hash($password, PASSWORD_BCRYPT, $options);
 
@@ -88,8 +91,8 @@ class Database{
     return true;
   }
 
-  public function Login($login, $password)
-  {
+  public function Login($login, $password){
+    $this->error = "";
     $sql = "SELECT id, name, email, password FROM users WHERE name = :login OR email = :login";
     $stmt = $this->dbh->prepare($sql);
     $stmt->bindParam(":login", $login, PDO::PARAM_STR);
@@ -117,6 +120,7 @@ class Database{
   }
 
   public function getLink($id) {
+    $this->error = "";
     $sql = "SELECT original_url, short_url, long_url, creation_date, clicks FROM urls WHERE user_id = :id";
     $stmt = $this->dbh->prepare($sql);
     $stmt->bindParam(":id", $id , PDO::PARAM_INT);
@@ -144,6 +148,7 @@ class Database{
   }
 
   public function deleteLink($user_id, $original_url) {
+    $this->error = "";
     $sql = "DELETE FROM urls WHERE original_url = :original_url AND user_id = :user_id";
     $stmt = $this->dbh->prepare($sql);
     $stmt->bindParam(":original_url", $original_url, PDO::PARAM_STR);
@@ -171,8 +176,100 @@ class Database{
   }
 
   public function deleteAllLinks($user_id) {
+    $this->error = "";
     $sql = "DELETE FROM urls WHERE user_id = :user_id";
     $stmt = $this->dbh->prepare($sql);
+    $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+
+    try {
+      $stmt->execute();
+    } catch(PDOException $e) {
+      $this->error = "Error: ".$e->getCode();
+      return false;
+    }
+
+    if(!$stmt) {
+      $this->error = "Something went wrong.";
+      return false;
+    }
+
+    return true;
+  }
+
+  public function validateLink($short_url) {
+    $this->error = "";
+    if (empty($short_url)) {
+      $this->error = "You can't leave this empty";
+      return false;
+    }
+
+    if (!preg_match('/^[a-zA-Z0-9]*$/', $short_url)) {
+        $this->error = "Link contains illegal characters.";
+        return false;
+    }
+
+    return true;
+  }
+
+  public function ownLink($user_id, $original_url){
+    $this->error = "";
+    $sql = "SELECT * FROM urls WHERE user_id = :user_id AND original_url = :original_url";
+    $stmt = $this->dbh->prepare($sql);
+    $stmt->bindParam(":original_url", $original_url, PDO::PARAM_STR);
+    $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+
+    try {
+      $stmt->execute();
+    } catch(PDOException $e) {
+      $this->error = "Error: ".$e->getCode();
+      return false;
+    }
+
+    if(!$stmt) {
+      $this->error = "Something went wrong.";
+      return false;
+    }
+
+    $number_of_rows = $stmt->rowCount();
+    if($number_of_rows==0) {
+      return false;
+    }
+
+    return true;
+  }
+
+  public function checkLink($short_url){
+    $this->error = "";
+    $sql = "SELECT * FROM urls WHERE short_url = :short_url";
+    $stmt = $this->dbh->prepare($sql);
+    $stmt->bindParam(":short_url", $short_url, PDO::PARAM_STR);
+
+    try {
+      $stmt->execute();
+    } catch(PDOException $e) {
+      $this->error = "Error: ".$e->getCode();
+      return false;
+    }
+
+    if(!$stmt) {
+      $this->error = "Something went wrong.";
+      return false;
+    }
+
+    $number_of_rows = $stmt->rowCount();
+    if($number_of_rows>0) {
+      return false;
+    }
+
+    return true;
+  }
+
+  public function editLink($user_id, $original_url, $short_url){
+    $this->error = "";
+    $sql = "UPDATE urls SET short_url = :short_url WHERE original_url = :original_url AND user_id = :user_id";
+    $stmt = $this->dbh->prepare($sql);
+    $stmt->bindParam(":short_url", $short_url, PDO::PARAM_STR);
+    $stmt->bindParam(":original_url", $original_url, PDO::PARAM_STR);
     $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
 
     try {

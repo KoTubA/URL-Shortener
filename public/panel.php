@@ -82,10 +82,10 @@
             <form class="form-system form-panel" action="#" method="POST">
                 <h2 class="add-link-title">Create Link</h2>
                 <div class="form-fileds">
-                    <label class="form-label" for="username">Long link</label>
-                    <input class="form-control" type="text" name="username" autocomplete="username email"
-                        autocorrect="off" autocapitalize="none">
-                    <span class="error-message hidden"></span>
+                    <label class="form-label" for="username">Long URL</label>
+                    <input class="form-control" type="text" name="username"
+                        autocorrect="off">
+                    <span class="error-message"></span>
                 </div>
                 <div class="form-action-buttons">
                     <button type="button"
@@ -94,6 +94,7 @@
                 </div>
             </form>
         </section>
+        <section class="edit-link"></section>
         <section class="account-settings">
             <nav class="account-settings-nav">
                 <ul class="account-settings-nav-items">
@@ -110,7 +111,7 @@
         <div class="overlay overlay-panel"></div>
     </main>
     <div class="delete-feedback-error"></div>
-    <div class="overlay overlay-notification"></div>
+    <div class="overlay-notification"></div>
     <script src="scripts/panel.js"></script>
     <script src="scripts/link.js"></script>
 </body>

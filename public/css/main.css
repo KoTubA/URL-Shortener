@@ -12,7 +12,8 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
 }
 
 .panel-title,
-.add-link-title, .error-title, .features-card-title, .resources-title,
+.add-link-title,
+.edit-link-title, .error-title, .features-card-title, .resources-title,
 .resources-item-title, .resources-category,
 .resources-item-category, .rescources-items-filter-title, .compare-title, .summary-title, .info-title, .form-title, .advanced-statistics-title, .statistics-card-title {
   font-weight: 700;
@@ -345,6 +346,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
 }
 
 .form-control {
+  color: #35323e;
   border: 1px solid #9e9aa7;
   border-radius: 0.2rem;
   padding: 0.7rem 0.8rem;
@@ -580,7 +582,8 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
   color: #2acfcf;
 }
 
-.overlay {
+.overlay,
+.overlay-notification {
   display: none;
   position: absolute;
   top: 0;
@@ -1211,7 +1214,8 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
 }
 
 .panel-title,
-.add-link-title {
+.add-link-title,
+.edit-link-title {
   color: #35323e;
   margin: 0;
   line-height: 1.25;
@@ -1287,7 +1291,8 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
 }
 
 .add-link,
-.account-settings {
+.account-settings,
+.edit-link {
   position: fixed;
   left: 0;
   right: 0;
@@ -1304,11 +1309,13 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
 }
 
 .add-link-visible,
-.account-settings-visible {
+.account-settings-visible,
+.edit-link-visible {
   transform: translateX(0%);
 }
 
-.add-link-title {
+.add-link-title,
+.edit-link-title {
   text-align: left;
   padding-bottom: 1rem;
 }
@@ -1405,7 +1412,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
   max-height: 33px;
 }
 
-.overlay-panel,
+.overlay,
 .overlay-notification {
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -1474,6 +1481,10 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
   margin: 3px;
   width: 30px;
   height: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .bold-text {
@@ -1541,7 +1552,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
   border: 1px solid #f46262;
   color: #f46262;
   background-color: #ffe6e6;
-  padding: 0.5rem 2rem;
+  padding: 1rem 2rem;
   display: none;
   font-size: 0.9rem;
 }
@@ -1549,6 +1560,36 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
 .delete-feedback-error-visible {
   display: flex;
   animation: show_alert 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.edit-link-data {
+  display: flex;
+  align-self: flex-end;
+  padding: 0.5rem 1rem;
+  color: #9e9aa7;
+  border: 1px solid #9e9aa7;
+  border-radius: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.form-info {
+  font-size: 0.8rem;
+  padding-bottom: 0.2rem;
+  margin-top: -0.5rem;
+  color: #2acfcf;
+}
+
+.form-label-with-info {
+  padding-bottom: 0.3rem;
+}
+
+.form-label-with-feedback {
+  padding-top: 0rem;
+}
+
+.form-feedback-edit {
+  margin: 0.5rem 0rem;
+  font-size: 0.9rem;
 }
 
 body,
@@ -1619,7 +1660,8 @@ a {
 .error,
 .panel,
 .add-link,
-.account-settings {
+.account-settings,
+.edit-link {
     padding-left: 2rem;
     padding-right: 2rem;
   }
@@ -1984,7 +2026,8 @@ a {
   }
 
   .add-link,
-.account-settings {
+.account-settings,
+.edit-link {
     height: 100vh;
     padding-left: 9rem;
   }

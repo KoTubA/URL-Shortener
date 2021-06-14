@@ -5,8 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
         panel_result_cnt = document.querySelector(".panel-result-cnt"),
         panel_result_loader = document.querySelector(".panel-result-loader"),
         panel_error = document.querySelector(".panel-error"),
-        overlay = document.querySelector(".overlay-notification"),
-        delete_feedback_error = document.querySelector(".delete-feedback-error");
+        overlay_notification = document.querySelector(".overlay-notification"),
+        overlay_panel = document.querySelector(".overlay-panel"),
+        delete_feedback_error = document.querySelector(".delete-feedback-error"),
+        edit_link_cnt = document.querySelector(".edit-link");
 
     //Dynamic fetch links
     function fetch_links() {
@@ -42,7 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     //Add events (copy/delete/delete all)
                     const panel_result_link_data_btn_cpy = document.querySelectorAll(".panel-result-link-data-btn-cpy"),
                         panel_result_link_data_btn_delete = document.querySelectorAll(".panel-result-link-data-btn-delete"),
-                        main_link_clear_all = document.querySelector(".main-link-clear-all");
+                        main_link_clear_all = document.querySelector(".main-link-clear-all"),
+                        panel_result_link_data_btn_edit = document.querySelectorAll(".panel-result-link-data-btn-edit");
 
                     for (let ele of panel_result_link_data_btn_cpy) {
                         ele.addEventListener("click", copy_to_clipboard);
@@ -60,6 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         let form_id = "delete-all-links";
                         delete_link_notification(des, form_id, this);
                     });
+
+                    for (let ele of panel_result_link_data_btn_edit) {
+                        ele.addEventListener("click", edit_link_section);
+                    }
                 } else {
                     if (res.hasOwnProperty("error")) {
                         panel_result_error.classList.add("panel-result-feedback-visible");
@@ -144,27 +151,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         fragment.appendChild(link_notification);
         document.querySelector(".main-panel").appendChild(fragment);
-        overlay.classList.add("overlay-visible");
+        overlay_notification.classList.add("overlay-visible");
 
-        overlay.addEventListener("click", remove_notification, { once: true });
+        overlay_notification.addEventListener("click", remove_notification, { once: true });
     }
 
     function remove_notification() {
         //Remove all event listeners from all children
         let old_element = document.querySelector(".delete-link-notification");
-        let new_element = old_element.cloneNode(true);
-        old_element.parentNode.replaceChild(new_element, old_element);
+        if (old_element != null) {
+            let new_element = old_element.cloneNode(true);
+            old_element.parentNode.replaceChild(new_element, old_element);
 
-        //Remove parent
-        new_element.remove();
-        overlay.classList.remove("overlay-visible");
+            //Remove parent
+            new_element.remove();
+        }
+        overlay_notification.classList.remove("overlay-visible");
     }
 
     function feedback_error() {
         delete_feedback_error.classList.remove("delete-feedback-error-visible");
     }
 
-    //Error feedback msg
+    //Server error - feedback msg
     let feedback;
 
     //Dynamic delete single link
@@ -201,6 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
+    ////Dynamic delete all links
     function delete_all_links(e) {
         e.preventDefault();
         clearTimeout(feedback);
@@ -222,6 +232,178 @@ document.addEventListener("DOMContentLoaded", () => {
                     feedback = setTimeout(feedback_error, 4000);
                     delete_feedback_error.classList.add("delete-feedback-error-visible");
                     delete_feedback_error.innerText = res["error"];
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+    function edit_link_section() {
+        const fragment = document.createDocumentFragment();
+
+        let edit_link_form = document.createElement("form");
+        edit_link_form.classList.add("form-panel", "form-system", "form-edit-link");
+        edit_link_form.method = "POST";
+        edit_link_form.id = "edit-link";
+        edit_link_form.addEventListener("submit", edit_link);
+
+        let edit_link_title = document.createElement("h2");
+        edit_link_title.classList.add("edit-link-title");
+        edit_link_title.innerText = "Edit Link";
+
+        let edit_link_form_fileds = document.createElement("div");
+        edit_link_form_fileds.classList.add("form-fileds");
+
+        let edit_link_data = document.createElement("div");
+        edit_link_data.classList.add("edit-link-data");
+        edit_link_data.innerText = this.parentElement.parentElement.children[2].innerText;
+
+        let edit_link_feedback = document.createElement("div");
+        edit_link_feedback.classList.add("form-feedback", "form-feedback-edit");
+
+        let edit_link_label_long_url = document.createElement("label");
+        edit_link_label_long_url.for = "long-url";
+        edit_link_label_long_url.classList.add("form-label", "form-label-with-feedback");
+        edit_link_label_long_url.innerText = "Long URL";
+
+        let edit_link_input_long_url = document.createElement("input");
+        edit_link_input_long_url.type = "text";
+        edit_link_input_long_url.disabled = "disabled";
+        edit_link_input_long_url.name = "long-url";
+        edit_link_input_long_url.autocorrect = "off";
+        edit_link_input_long_url.classList.add("form-control");
+        edit_link_input_long_url.value = this.parentElement.parentElement.children[1].innerText;
+
+        let edit_link_label_short_url = document.createElement("label");
+        edit_link_label_short_url.for = "short-url";
+        edit_link_label_short_url.classList.add("form-label", "form-label-with-info");
+        edit_link_label_short_url.innerText = "Short URL";
+
+        let edit_link_info_short_url = document.createElement("span");
+        edit_link_info_short_url.classList.add("form-info");
+        edit_link_info_short_url.innerText = "Allowed characters: a-z A-Z 0-9";
+
+        let url = this.parentElement.parentElement.children[0].innerText.split("/");
+        let edit_link_input_short_url = document.createElement("input");
+        edit_link_input_short_url.type = "text";
+        edit_link_input_short_url.name = "short-url";
+        edit_link_input_short_url.autocorrect = "off";
+        edit_link_input_short_url.classList.add("form-control");
+        edit_link_input_short_url.value = url[1];
+
+        let edit_link_error_short_url = document.createElement("span");
+        edit_link_error_short_url.classList.add("error-message", "data-error");
+
+        let edit_link_input_hidden = document.createElement("input");
+        edit_link_input_hidden.type = "hidden";
+        edit_link_input_hidden.name = "url";
+        edit_link_input_hidden.value = this.getAttribute("data-original-url");
+
+        let form_action_buttons = document.createElement("div");
+        form_action_buttons.classList.add("form-action-buttons");
+
+        let discard_button = document.createElement("button");
+        discard_button.classList.add("main-btn", "form-btn", "panel-btn", "no-fill-btn", "edit-link-disable");
+        discard_button.type = "button";
+        discard_button.innerText = "Discard";
+        discard_button.addEventListener("click", remove_edit);
+
+        let delete_button = document.createElement("button");
+        delete_button.classList.add("main-btn", "form-btn", "panel-btn");
+        delete_button.innerText = "Edit";
+
+        form_action_buttons.appendChild(discard_button);
+        form_action_buttons.appendChild(delete_button);
+
+        edit_link_form_fileds.appendChild(edit_link_data);
+        edit_link_form_fileds.appendChild(edit_link_feedback);
+        edit_link_form_fileds.appendChild(edit_link_label_long_url);
+        edit_link_form_fileds.appendChild(edit_link_input_long_url);
+        edit_link_form_fileds.appendChild(edit_link_label_short_url);
+        edit_link_form_fileds.appendChild(edit_link_info_short_url);
+        edit_link_form_fileds.appendChild(edit_link_input_short_url);
+        edit_link_form_fileds.appendChild(edit_link_error_short_url);
+        edit_link_form_fileds.appendChild(edit_link_input_hidden);
+
+        edit_link_form.appendChild(edit_link_title);
+        edit_link_form.appendChild(edit_link_form_fileds);
+        edit_link_form.appendChild(form_action_buttons);
+
+        fragment.appendChild(edit_link_form);
+        edit_link_cnt.appendChild(fragment);
+
+        edit_link_cnt.classList.add("edit-link-visible");
+        overlay_panel.classList.add("overlay-visible");
+
+        overlay_panel.addEventListener("click", remove_edit, { once: true });
+    }
+
+    function remove_edit() {
+        edit_link_cnt.classList.remove("edit-link-visible");
+        setTimeout(() => {
+            //Remove overlay only when button or succesful edit link (because the overlay has this already implemented)
+            if (!this.classList.contains("overlay")) overlay_panel.classList.remove("overlay-visible");
+
+            //Remove all event listeners from all children
+            let old_element = document.querySelector(".form-edit-link");
+            if (old_element != null) {
+                let new_element = old_element.cloneNode(true);
+                old_element.parentNode.replaceChild(new_element, old_element);
+                //Remove parent
+                new_element.remove();
+            }
+        }, 500);
+    }
+
+    function edit_link(e) {
+        e.preventDefault();
+
+        const short_url = document.querySelector("[name='short-url']"),
+            original_url = document.querySelector("[name='url']"),
+            error_message = document.querySelectorAll(".error-message-visible"),
+            form_feedback = document.querySelector(".form-feedback");
+
+        for (let ele of error_message) {
+            ele.classList.remove("error-message-visible");
+            ele.previousElementSibling.classList.remove("form-control-error");
+            ele.previousElementSibling.previousElementSibling.previousElementSibling.classList.remove("form-label-error");
+            ele.innerText = "";
+        }
+
+        form_feedback.classList.remove("form-feedback-error", "form-feedback-success");
+        form_feedback.innerText = "";
+
+        fetch("../controllers/editLink.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                short_url: short_url.value,
+                original_url: original_url.value,
+            }),
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                if (res.success) {
+                    remove_edit.call(this);
+                    fetch_links();
+                } else {
+                    if (res.data.hasOwnProperty("error")) {
+                        let form_feedback_edit = document.querySelector(".form-feedback-edit");
+                        form_feedback_edit.classList.add("form-feedback-error");
+                        form_feedback_edit.innerText = res.data["error"];
+                    } else {
+                        for (var key in res.data) {
+                            document.querySelector("." + key).classList.add("error-message-visible");
+                            document.querySelector("." + key).previousElementSibling.classList.add("form-control-error");
+                            document
+                                .querySelector("." + key)
+                                .previousElementSibling.previousElementSibling.previousElementSibling.classList.add("form-label-error");
+                            document.querySelector("." + key).innerText = res.data[key];
+                        }
+                    }
                 }
             })
             .catch((error) => {

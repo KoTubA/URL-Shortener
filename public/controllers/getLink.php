@@ -49,9 +49,9 @@
         $protocol = "http";
         $data = $data. <<<EOD
           <div class="panel-result-link-row">
-              <div class="panel-result-link-data">{$protocol}://{$hostname}/{$row['short_url']}</div>
+              <div class="panel-result-link-data">{$hostname}/{$row['short_url']}</div>
               <div class="panel-result-link-data">{$row['long_url']}</div>
-              <div class="panel-result-link-data">{$row['creation_date']}</div>
+              <div class="panel-result-link-data panel-result-link-date">{$row['creation_date']}</div>
               <div class="panel-result-link-data">{$row['clicks']}</div>
               <div class="panel-result-link-data">
                   <button class="panel-result-link-data-btn panel-result-link-data-btn-cpy" data-clipboard-text="{$protocol}://{$hostname}/{$row['short_url']}">
@@ -78,7 +78,7 @@
             <div class="panel-result-links">
                 <div class="panel-result-link-row panel-result-link-row-header">
                     <div class="panel-result-link-data">Shorten URL</div>
-                    <div class="panel-result-link-data">Original URL</div>
+                    <div class="panel-result-link-data">Long URL</div>
                     <div class="panel-result-link-data">Created</div>
                     <div class="panel-result-link-data">Clicks</div>
                     <div class="panel-result-link-data">Action</div>

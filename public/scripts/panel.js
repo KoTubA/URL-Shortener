@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         add_link_disable = document.querySelector(".add-link-disable"),
         account_settings_toogle = document.querySelector(".account-settings-toogle"),
         account_settings = document.querySelector(".account-settings"),
+        edit_link = document.querySelector(".edit-link"),
         overlay = document.querySelector(".overlay-panel");
 
     main_btn_add.addEventListener("click", function () {
@@ -31,11 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
               document.body.classList.add("no-scroll"));
     });
 
+    let timer;
     overlay.addEventListener("click", function () {
         account_settings_toogle.classList.remove("account-settings-toogle-visible");
         account_settings.classList.remove("account-settings-visible");
         add_link.classList.remove("add-link-visible");
         document.body.classList.remove("no-scroll");
-        this.classList.remove("overlay-visible");
+        edit_link.classList.remove("edit-link-visible");
+
+        //Protect before clear cnt
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            overlay.classList.remove("overlay-visible");
+        }, 500);
     });
 });

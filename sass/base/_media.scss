@@ -62,7 +62,8 @@
     .error,
     .panel,
     .add-link,
-    .account-settings {
+    .account-settings,
+    .edit-link {
         padding-left: 2rem;
         padding-right: 2rem;
     }
@@ -429,7 +430,8 @@
     }
 
     .add-link,
-    .account-settings {
+    .account-settings,
+    .edit-link {
         height: 100vh;
         padding-left: 9rem;
     }
