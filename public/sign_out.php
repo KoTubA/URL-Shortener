@@ -1,10 +1,9 @@
 <?php
-  session_start();
+    session_start();
 
-  if(isset($_SESSION['online']))
-  {
-    unset($_SESSION['online']);
-  }
+    if(isset($_SESSION['online'])){
+        unset($_SESSION['online']);
+    }
 
-  session_destroy();
-  header("Location: /");
+    session_destroy();
+    header("Location: /");

@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay_notification = document.querySelector(".overlay-notification"),
         overlay_panel = document.querySelector(".overlay-panel"),
         delete_feedback_error = document.querySelector(".delete-feedback-error"),
-        edit_link_cnt = document.querySelector(".edit-link");
+        edit_link_cnt = document.querySelector(".edit-link"),
+        add_link = document.querySelector("#add-link");
 
     //Dynamic fetch links
     function fetch_links() {

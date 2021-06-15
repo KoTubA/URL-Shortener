@@ -1317,7 +1317,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
 .add-link-title,
 .edit-link-title {
   text-align: left;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .panel-wrapper {
@@ -1356,7 +1356,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
 
 .account-settings-nav,
 .form-panel {
-  padding-top: 1.5rem;
+  padding-top: 2rem;
 }
 
 .account-settings-nav-items {
@@ -1587,7 +1587,8 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
   padding-top: 0rem;
 }
 
-.form-feedback-edit {
+.form-feedback-edit,
+.form-feedback-add {
   margin: 0.5rem 0rem;
   font-size: 0.9rem;
 }

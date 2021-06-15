@@ -79,10 +79,11 @@
             </div>
         </section>
         <section class="add-link">
-            <form class="form-system form-panel" action="#" method="POST">
+            <form class="form-system form-panel" method="POST" id="add-link">
                 <h2 class="add-link-title">Create Link</h2>
                 <div class="form-fileds">
-                    <label class="form-label" for="username">Long URL</label>
+                    <div class="form-feedback form-feedback-add"></div>
+                    <label class="form-label form-label-with-feedback" for="username">Long URL</label>
                     <input class="form-control" type="text" name="username"
                         autocorrect="off">
                     <span class="error-message"></span>
