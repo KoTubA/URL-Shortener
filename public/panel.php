@@ -83,10 +83,10 @@
                 <h2 class="add-link-title">Create Link</h2>
                 <div class="form-fileds">
                     <div class="form-feedback form-feedback-add"></div>
-                    <label class="form-label form-label-with-feedback" for="username">Long URL</label>
-                    <input class="form-control" type="text" name="username"
+                    <label class="form-label form-label-with-feedback" for="long-url">Long URL</label>
+                    <input class="form-control" type="text" name="long-url"
                         autocorrect="off">
-                    <span class="error-message"></span>
+                    <span class="error-message data-error-add"></span>
                 </div>
                 <div class="form-action-buttons">
                     <button type="button"

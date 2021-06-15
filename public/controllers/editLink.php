@@ -29,7 +29,7 @@
         $error = $db->getError();
         if (!$result) {
             $r_errors["success"] = false;
-            $r_errors["data"]["data-error"] = $error;
+            $r_errors["data"]["data-error-edit"] = $error;
             echo json_encode($r_errors);
             exit();
         }
@@ -45,7 +45,7 @@
         }
         else if($result==false) {
             $r_errors["success"] = false;
-            $r_errors["data"]["data-error"] = "You are not the owner of the link.";
+            $r_errors["data"]["data-error-edit"] = "You are not the owner of the link.";
             echo json_encode($r_errors);
             exit();
         }
@@ -61,7 +61,7 @@
         }
         else if($result==false) {
             $r_errors["success"] = false;
-            $r_errors["data"]["data-error"] = "This custom link is taken.";
+            $r_errors["data"]["data-error-edit"] = "This custom link is taken.";
             echo json_encode($r_errors);
             exit();
         }

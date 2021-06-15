@@ -9,7 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay_panel = document.querySelector(".overlay-panel"),
         delete_feedback_error = document.querySelector(".delete-feedback-error"),
         edit_link_cnt = document.querySelector(".edit-link"),
-        add_link = document.querySelector("#add-link");
+        add_section = document.querySelector(".add-link"),
+        add_link = document.querySelector("#add-link"),
+        long_url = document.querySelector("[name='long-url']");
 
     //Dynamic fetch links
     function fetch_links() {
@@ -66,7 +68,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
 
                     for (let ele of panel_result_link_data_btn_edit) {
-                        ele.addEventListener("click", edit_link_section);
+                        ele.addEventListener("click", function () {
+                            let data = this.parentElement.parentElement.children[2].innerText;
+                            let l_url = this.parentElement.parentElement.children[1].innerText;
+                            let s_url = this.parentElement.parentElement.children[0].innerText.split("/");
+                            let o_url = this.getAttribute("data-original-url");
+                            edit_link_section(data, l_url, s_url[1], o_url);
+                        });
                     }
                 } else {
                     if (res.hasOwnProperty("error")) {
@@ -240,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
-    function edit_link_section() {
+    function edit_link_section(created_value, long_url_value, short_url_value, original_url_value) {
         const fragment = document.createDocumentFragment();
 
         let edit_link_form = document.createElement("form");
@@ -258,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let edit_link_data = document.createElement("div");
         edit_link_data.classList.add("edit-link-data");
-        edit_link_data.innerText = this.parentElement.parentElement.children[2].innerText;
+        edit_link_data.innerText = created_value;
 
         let edit_link_feedback = document.createElement("div");
         edit_link_feedback.classList.add("form-feedback", "form-feedback-edit");
@@ -274,7 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
         edit_link_input_long_url.name = "long-url";
         edit_link_input_long_url.autocorrect = "off";
         edit_link_input_long_url.classList.add("form-control");
-        edit_link_input_long_url.value = this.parentElement.parentElement.children[1].innerText;
+        edit_link_input_long_url.value = long_url_value;
 
         let edit_link_label_short_url = document.createElement("label");
         edit_link_label_short_url.for = "short-url";
@@ -285,21 +293,20 @@ document.addEventListener("DOMContentLoaded", () => {
         edit_link_info_short_url.classList.add("form-info");
         edit_link_info_short_url.innerText = "Allowed characters: a-z A-Z 0-9";
 
-        let url = this.parentElement.parentElement.children[0].innerText.split("/");
         let edit_link_input_short_url = document.createElement("input");
         edit_link_input_short_url.type = "text";
         edit_link_input_short_url.name = "short-url";
         edit_link_input_short_url.autocorrect = "off";
         edit_link_input_short_url.classList.add("form-control");
-        edit_link_input_short_url.value = url[1];
+        edit_link_input_short_url.value = short_url_value;
 
         let edit_link_error_short_url = document.createElement("span");
-        edit_link_error_short_url.classList.add("error-message", "data-error");
+        edit_link_error_short_url.classList.add("error-message", "data-error-edit");
 
         let edit_link_input_hidden = document.createElement("input");
         edit_link_input_hidden.type = "hidden";
         edit_link_input_hidden.name = "url";
-        edit_link_input_hidden.value = this.getAttribute("data-original-url");
+        edit_link_input_hidden.value = original_url_value;
 
         let form_action_buttons = document.createElement("div");
         form_action_buttons.classList.add("form-action-buttons");
@@ -309,6 +316,9 @@ document.addEventListener("DOMContentLoaded", () => {
         discard_button.type = "button";
         discard_button.innerText = "Discard";
         discard_button.addEventListener("click", remove_edit);
+        discard_button.addEventListener("click", () => {
+            add_section.classList.remove("add-link-visible");
+        });
 
         let delete_button = document.createElement("button");
         delete_button.classList.add("main-btn", "form-btn", "panel-btn");
@@ -342,6 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function remove_edit() {
         edit_link_cnt.classList.remove("edit-link-visible");
+        add_section.classList.remove("add-link-visible");
         setTimeout(() => {
             //Remove overlay only when button or succesful edit link (because the overlay has this already implemented)
             if (!this.classList.contains("overlay")) overlay_panel.classList.remove("overlay-visible");
@@ -363,7 +374,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const short_url = document.querySelector("[name='short-url']"),
             original_url = document.querySelector("[name='url']"),
             error_message = document.querySelectorAll(".error-message-visible"),
-            form_feedback = document.querySelector(".form-feedback");
+            form_feedback = document.querySelector(".form-feedback-edit");
 
         for (let ele of error_message) {
             ele.classList.remove("error-message-visible");
@@ -411,4 +422,58 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(error);
             });
     }
+
+    //Dynamic add link
+    add_link.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const error_message = document.querySelectorAll(".error-message-visible"),
+            form_feedback = document.querySelector(".form-feedback-add");
+
+        for (let ele of error_message) {
+            ele.classList.remove("error-message-visible");
+            ele.previousElementSibling.classList.remove("form-control-error");
+            ele.previousElementSibling.previousElementSibling.previousElementSibling.classList.remove("form-label-error");
+            ele.innerText = "";
+        }
+
+        form_feedback.classList.remove("form-feedback-error", "form-feedback-success");
+        form_feedback.innerText = "";
+
+        fetch("../controllers/addLink.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                long_url: long_url.value,
+            }),
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                if (res.success) {
+                    long_url.value = "";
+                    edit_link_section(res.data["date"], res.data["long-url"], res.data["short-url"], res.data["original-url"]);
+                    fetch_links();
+                } else {
+                    if (res.data.hasOwnProperty("error")) {
+                        let form_feedback_edit = document.querySelector(".form-feedback-add");
+                        form_feedback_edit.classList.add("form-feedback-error");
+                        form_feedback_edit.innerText = res.data["error"];
+                    } else {
+                        for (var key in res.data) {
+                            document.querySelector("." + key).classList.add("error-message-visible");
+                            document.querySelector("." + key).previousElementSibling.classList.add("form-control-error");
+                            document
+                                .querySelector("." + key)
+                                .previousElementSibling.previousElementSibling.previousElementSibling.classList.add("form-label-error");
+                            document.querySelector("." + key).innerText = res.data[key];
+                        }
+                    }
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    });
 });

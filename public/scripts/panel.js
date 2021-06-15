@@ -9,27 +9,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     main_btn_add.addEventListener("click", function () {
         add_link.classList.add("add-link-visible");
-        document.body.classList.add("no-scroll");
         overlay.classList.add("overlay-visible");
     });
 
     add_link_disable.addEventListener("click", function () {
         add_link.classList.remove("add-link-visible");
-        document.body.classList.remove("no-scroll");
         overlay.classList.remove("overlay-visible");
     });
 
     account_settings_toogle.addEventListener("click", function () {
-        account_settings.classList.contains("account-settings-visible")
-            ? (this.classList.remove("account-settings-toogle-visible"),
-              overlay.classList.remove("overlay-visible"),
-              account_settings.classList.remove("account-settings-visible"),
-              add_link.classList.remove("add-link-visible"),
-              document.body.classList.remove("no-scroll"))
-            : (this.classList.add("account-settings-toogle-visible"),
-              overlay.classList.add("overlay-visible"),
-              account_settings.classList.add("account-settings-visible"),
-              document.body.classList.add("no-scroll"));
+        if (account_settings.classList.contains("account-settings-visible")) {
+            this.classList.remove("account-settings-toogle-visible");
+            overlay.classList.remove("overlay-visible");
+            account_settings.classList.remove("account-settings-visible");
+            add_link.classList.remove("add-link-visible");
+            if (edit_link.classList.contains("edit-link-visible")) edit_link.classList.remove("edit-link-visible");
+        } else {
+            this.classList.add("account-settings-toogle-visible");
+            overlay.classList.add("overlay-visible");
+            account_settings.classList.add("account-settings-visible");
+        }
     });
 
     let timer;
@@ -37,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
         account_settings_toogle.classList.remove("account-settings-toogle-visible");
         account_settings.classList.remove("account-settings-visible");
         add_link.classList.remove("add-link-visible");
-        document.body.classList.remove("no-scroll");
         edit_link.classList.remove("edit-link-visible");
 
         //Protect before clear cnt
