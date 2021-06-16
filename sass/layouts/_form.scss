@@ -110,7 +110,7 @@
 .form-title {
     @include title;
     padding-top: 2rem;
-    margin-block-end: 0.5em;
+    margin-bottom: 0.5rem;
     line-height: 1.25;
     font-size: 1.7rem;
 }
@@ -119,7 +119,7 @@
     @extend %description;
     color: map-get($map: $neutral, $key: dark-blue);
     font-size: 1rem;
-    margin-block-start: 0em;
+    margin-top: 0;
     font-weight: map-get($map: $font-weight, $key: lighter);
 }
 
