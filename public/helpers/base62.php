@@ -1,4 +1,5 @@
 <?php
+
     function toBase($num) {
         $_characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 

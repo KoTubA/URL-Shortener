@@ -86,6 +86,9 @@
         $r_errors["data"]["short-url"] = $short_url;
         $r_errors["data"]["long-url"] = $long_url;
         echo json_encode($r_errors);
+        exit();
     }
+
+    exit();
 
 ?>
