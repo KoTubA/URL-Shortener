@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
         name = document.querySelector("[name='username']"),
         password = document.querySelector("[name='password']"),
         error_message = document.querySelectorAll(".error-message"),
-        form_control = document.querySelectorAll(".form-control"),
         form_feedback = document.querySelector(".form-feedback");
 
     form_login.addEventListener("submit", (e) => {
@@ -21,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         form_feedback.classList.remove("form-feedback-error", "form-feedback-success");
         form_feedback.innerText = "";
 
-        fetch("../controllers/login.php", {
+        fetch("/controllers/login.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -61,20 +60,4 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(error);
             });
     });
-
-    for (let ele of error_message) {
-        ele.classList.remove("error-message-visible");
-        ele.previousElementSibling.classList.remove("form-control-error");
-        ele.previousElementSibling.previousElementSibling.classList.remove("form-label-error");
-        ele.innerText = "";
-    }
-
-    for (let ele of form_control) {
-        ele.addEventListener("focus", remove_error);
-    }
-
-    function remove_error() {
-        this.classList.remove("form-control-error");
-        this.previousElementSibling.classList.remove("form-label-error");
-    }
 });

@@ -144,6 +144,12 @@
     transform: translateX(0%);
 }
 
+.add-link.no-animation,
+.account-settings.no-animation,
+.edit-link.no-animation {
+    transition: none;
+}
+
 .add-link-title,
 .edit-link-title {
     text-align: left;

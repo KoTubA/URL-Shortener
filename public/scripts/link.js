@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(".panel-result-counter").remove();
         }
 
-        fetch("../controllers/getLink.php", {
+        fetch("/controllers/getLink.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clearTimeout(feedback);
         feedback_error();
 
-        fetch("../controllers/deleteLink.php", {
+        fetch("/controllers/deleteLink.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clearTimeout(feedback);
         feedback_error();
 
-        fetch("../controllers/deleteAllLinks.php", {
+        fetch("/controllers/deleteAllLinks.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -386,7 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
         form_feedback.classList.remove("form-feedback-error", "form-feedback-success");
         form_feedback.innerText = "";
 
-        fetch("../controllers/editLink.php", {
+        fetch("/controllers/editLink.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -433,14 +433,14 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let ele of error_message) {
             ele.classList.remove("error-message-visible");
             ele.previousElementSibling.classList.remove("form-control-error");
-            ele.previousElementSibling.previousElementSibling.previousElementSibling.classList.remove("form-label-error");
+            ele.previousElementSibling.previousElementSibling.classList.remove("form-label-error");
             ele.innerText = "";
         }
 
         form_feedback.classList.remove("form-feedback-error", "form-feedback-success");
         form_feedback.innerText = "";
 
-        fetch("../controllers/addLink.php", {
+        fetch("/controllers/addLink.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -464,9 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         for (var key in res.data) {
                             document.querySelector("." + key).classList.add("error-message-visible");
                             document.querySelector("." + key).previousElementSibling.classList.add("form-control-error");
-                            document
-                                .querySelector("." + key)
-                                .previousElementSibling.previousElementSibling.previousElementSibling.classList.add("form-label-error");
+                            document.querySelector("." + key).previousElementSibling.previousElementSibling.classList.add("form-label-error");
                             document.querySelector("." + key).innerText = res.data[key];
                         }
                     }

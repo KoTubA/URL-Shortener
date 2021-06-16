@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         error_message.previousElementSibling.classList.remove("form-shorten-error");
         error_message.innerText = "";
 
-        fetch("../controllers/addLink.php", {
+        fetch("/controllers/addLink.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -39,10 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch((error) => {
                 console.log(error);
             });
-    });
-
-    shorten_link_input_field.addEventListener("click", () => {
-        error_message.previousElementSibling.classList.remove("form-shorten-error");
     });
 
     function result_link_section(long_url_value, short_url_value) {

@@ -1394,6 +1394,12 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
   transform: translateX(0%);
 }
 
+.add-link.no-animation,
+.account-settings.no-animation,
+.edit-link.no-animation {
+  transition: none;
+}
+
 .add-link-title,
 .edit-link-title {
   text-align: left;
@@ -1901,7 +1907,7 @@ a {
     margin-right: 2rem;
   }
 
-  .header-panel-cnt .company-logo-link {
+  .nav-panel-cnt .company-logo-link {
     margin: 0;
     padding: 0;
   }
@@ -2128,7 +2134,7 @@ a {
     flex-direction: row;
   }
 
-  .header-panel-cnt {
+  .nav-panel-cnt {
     flex-direction: column;
     height: 100%;
     width: 7rem;

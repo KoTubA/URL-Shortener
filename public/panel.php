@@ -26,7 +26,7 @@
 <body class="panel-wrapper">
 
     <header class="header header-panel">
-        <div class="header-cnt header-panel-cnt">
+        <nav class="header-cnt nav-panel-cnt">
             <div class="header-panel-home">
                 <a href="/" class="company-logo-link">
                     <img src="images/logo-icon.svg" alt="company logo" class="company-logo company-logo-panel">
@@ -36,7 +36,7 @@
                 <img src="images/profile-user.svg" alt="User">
                 <img src="images/close.svg" alt="X">
             </button>
-        </div>
+        </nav>
     </header>
     <main class="main main-panel">
         <section class="panel">
@@ -78,13 +78,13 @@
                 </div>
             </div>
         </section>
-        <section class="add-link">
+        <section class="add-link no-animation">
             <form class="form-system form-panel" method="POST" id="add-link">
                 <h2 class="add-link-title">Create Link</h2>
                 <div class="form-fileds">
                     <div class="form-feedback form-feedback-add"></div>
                     <label class="form-label form-label-with-feedback" for="long-url">Long URL</label>
-                    <input class="form-control" type="text" name="long-url"
+                    <input class="form-control form-control-add" type="text" name="long-url"
                         autocorrect="off">
                     <span class="error-message data-error-add"></span>
                 </div>
@@ -95,8 +95,8 @@
                 </div>
             </form>
         </section>
-        <section class="edit-link"></section>
-        <section class="account-settings">
+        <section class="edit-link no-animation"></section>
+        <section class="account-settings no-animation">
             <nav class="account-settings-nav">
                 <ul class="account-settings-nav-items">
                     <li class="account-settings-nav-item"><a href="#">Profile Settings</a></li>
