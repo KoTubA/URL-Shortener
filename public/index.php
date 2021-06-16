@@ -1,3 +1,14 @@
+<?php
+
+    session_start();
+
+    if(isset($_SESSION['online'])) {
+        header('Location: panel');
+        exit();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,12 +64,20 @@
     </section>
     <section class="shorten-link">
       <div class="shorten-link-cnt">
-        <h2 class="shorten-link-title">Shorten function section</h2>
-        <div class="shorten-link-input-group">
-          <label class="shorten-link-label" for="shorten-link-input-field">input link downbelow</label>
-          <input id="shorten-link-input-field" placeholder="Shorten a link here...">
+        <form id="short-link" class="form-system" action="#" method="POST">
+          <h2 class="shorten-link-title">Shorten function section</h2>
+          <div class="shorten-link-input-group">
+            <label class="shorten-link-label" for="shorten-link-input-field">Input link downbelow</label>
+            <input id="shorten-link-input-field" name="long-url" placeholder="Shorten a link here...">
+            <span class="error-message error-message-absolute"></span>
+          </div>
+          <button class="main-btn shorten-link-btn">Shorten It!</button>
+        </form>
         </div>
-        <button class="main-btn shorten-link-btn">Shorten It!</button>
+    </section>
+    <section class="shorten-link-result">
+      <div class="shorten-link-result-cnt">
+        <h2 class="shorten-link-title">Shorten result section</h2>
       </div>
     </section>
     <section class="advanced-statistics">
@@ -180,6 +199,7 @@
     </div>
   </footer>
   <script src="scripts/main.js"></script>
+  <script src="scripts/addLink.js"></script>
 </body>
 
 </html>

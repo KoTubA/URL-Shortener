@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
             ele.classList.remove("error-message-visible");
             ele.previousElementSibling.classList.remove("form-control-error");
             ele.previousElementSibling.previousElementSibling.classList.remove("form-label-error");
+            ele.previousElementSibling.previousElementSibling.previousElementSibling.classList.remove("form-control-error");
+            ele.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.classList.remove("form-label-error");
             ele.innerText = "";
         }
 

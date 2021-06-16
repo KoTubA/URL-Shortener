@@ -1,3 +1,14 @@
+<?php
+
+    session_start();
+
+    if(isset($_SESSION['online'])) {
+        header('Location: panel');
+        exit();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

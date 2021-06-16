@@ -46,13 +46,13 @@
                 $number_of_links++;
                 $number_of_total_clicks += $row["clicks"];
                 $hostname = $_SERVER['HTTP_HOST'];
-                $protocol = "http";
+                $protocol = "https";
                 $data = $data. <<<EOD
                     <div class="panel-result-link-row">
-                        <div class="panel-result-link-data">{$hostname}/{$row['short_url']}</div>
-                        <div class="panel-result-link-data">{$row['long_url']}</div>
+                        <div class="panel-result-link-data"><span>{$hostname}/{$row['short_url']}</span></div>
+                        <div class="panel-result-link-data"><span>{$row['long_url']}</span></div>
                         <div class="panel-result-link-data panel-result-link-date">{$row['creation_date']}</div>
-                        <div class="panel-result-link-data">{$row['clicks']}</div>
+                        <div class="panel-result-link-data panel-result-link-data-clicks">{$row['clicks']}</div>
                         <div class="panel-result-link-data">
                             <button class="panel-result-link-data-btn panel-result-link-data-btn-cpy" data-clipboard-text="{$protocol}://{$hostname}/{$row['short_url']}">
                                 <img src="images/copy.svg" alt="Copy">
@@ -70,8 +70,8 @@
 
             $r_errors["data"] = <<<EOD
             <div class="panel-result-counter">
-                <span>Total Links: <span class="bold-text">{$number_of_links}</span> & total Clicks: <span
-                        class="bold-text">{$number_of_total_clicks}</span></span>
+                <span class="panel-result-counter-data"><span class="panel-result-counter-data-total">Total Links: <span class="bold-text">{$number_of_links}</span></span><span class="panel-result-counter-data-and">&</span><span class="panel-result-counter-data-total">Total Clicks: <span
+                        class="bold-text">{$number_of_total_clicks}</span></span></span>
                 <button class="main-link main-link-clear-all">Clear All</button>
             </div>
             <div class="panel-result-links-wrapper">

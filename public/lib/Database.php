@@ -197,13 +197,18 @@
 
         public function validateLink($short_url) {
             $this->error = "";
-            if (empty($short_url)) {
+            if ($short_url === "") {
                 $this->error = "You can't leave this empty.";
                 return false;
             }
 
             if (!preg_match('/^[a-zA-Z0-9]*$/', $short_url)) {
                 $this->error = "Link contains illegal characters.";
+                return false;
+            }
+
+            if (strlen($short_url)>2000) {
+                $this->error = "Your link is too long.";
                 return false;
             }
 
@@ -288,13 +293,18 @@
 
         public function validateLongLink($long_url){
             $this->error = "";
-            if (empty($long_url)) {
+            if ($long_url === "") {
                 $this->error = "You can't leave this empty.";
                 return false;
             }
 
             if (filter_var($long_url, FILTER_VALIDATE_URL) === FALSE) {
                 $this->error = "Not a valid URL.";
+                return false;
+            }
+
+            if (strlen($long_url)>2000) {
+                $this->error = "Your link is too long.";
                 return false;
             }
 

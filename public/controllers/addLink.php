@@ -3,11 +3,6 @@
     header("Content-Type: application/json");
     session_start();
 
-    if(!isset($_SESSION['online'])) {
-        header('Location: /');
-        exit();
-    }
-
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $data = json_decode(file_get_contents("php://input"));
         $long_url = $data->long_url;
@@ -66,8 +61,12 @@
             }
         }
 
+        $id = null;
+        if(isset($_SESSION['online'])) {
+            $id = $_SESSION["id"];
+        }
         $date = date('Y-m-d');
-        $result = $db->addLink($short_url, $long_url, $_SESSION["id"], $date);
+        $result = $db->addLink($short_url, $long_url, $id, $date);
         $error = $db->getError();
 
         if(!$result) {
@@ -75,6 +74,10 @@
             $r_errors["data"]["error"] = $error;
             echo json_encode($r_errors);
             exit();
+        }
+
+        if(!isset($_SESSION['online'])) {
+            $short_url = "https://".$_SERVER['HTTP_HOST']."/".$short_url;
         }
 
         $r_errors["success"] = true;

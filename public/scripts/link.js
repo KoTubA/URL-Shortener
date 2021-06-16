@@ -16,13 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
     //Dynamic fetch links
     function fetch_links() {
         for (let ele of panel_result_feedback) {
-            ele.classList.remove("panel_result_feedback-visible");
+            ele.classList.remove("panel-result-feedback-visible");
         }
         panel_result_loader.classList.remove("panel-result-loader-invisible");
         panel_error.innerText = "";
 
         //Remove all event listeners from all children
-        let old_element = document.querySelector(".panel-result-links-wrapper");
+        const old_element = document.querySelector(".panel-result-links-wrapper");
         if (old_element != null) {
             let new_element = old_element.cloneNode(true);
             old_element.parentNode.replaceChild(new_element, old_element);
@@ -453,8 +453,8 @@ document.addEventListener("DOMContentLoaded", () => {
             .then((res) => {
                 if (res.success) {
                     long_url.value = "";
-                    edit_link_section(res.data["date"], res.data["long-url"], res.data["short-url"], res.data["original-url"]);
                     fetch_links();
+                    edit_link_section(res.data["date"], res.data["long-url"], res.data["short-url"], res.data["original-url"]);
                 } else {
                     if (res.data.hasOwnProperty("error")) {
                         let form_feedback_edit = document.querySelector(".form-feedback-add");

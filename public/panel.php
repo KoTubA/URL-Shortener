@@ -29,7 +29,7 @@
         <div class="header-cnt header-panel-cnt">
             <div class="header-panel-home">
                 <a href="/" class="company-logo-link">
-                    <img src="images/logo-icon.svg" alt="company logo" class="company-logo">
+                    <img src="images/logo-icon.svg" alt="company logo" class="company-logo company-logo-panel">
                 </a>
             </div>
             <button class="account-settings-toogle">

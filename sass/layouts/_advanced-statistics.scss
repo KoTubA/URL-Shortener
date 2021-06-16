@@ -23,8 +23,9 @@
 .advanced-statistics-title {
     @include title;
     font-size: 1.7rem;
-    padding-top: 1rem;
+    padding-top: 0rem;
     margin-bottom: 0.8rem;
+    margin-top: 0rem;
 }
 
 .advanced-statistics-description {

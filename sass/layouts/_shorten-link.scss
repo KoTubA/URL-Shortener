@@ -23,7 +23,6 @@
 
 .shorten-link-cnt {
     @extend %flexbox;
-    flex-direction: column;
     flex: 1 1 100%;
     padding: 1.5rem;
     background-color: map-get($map: $primary, $key: dark-violet);
@@ -35,6 +34,12 @@
 
 .shorten-link-input-group {
     width: 100%;
+    position: relative;
+}
+
+.error-message-absolute {
+    font-weight: 500;
+    font-style: italic;
 }
 
 .shorten-link-label,
@@ -54,7 +59,7 @@
     width: 100%;
     border: 3px solid map-get($map: $primary, $key: white-color);
     font-weight: map-get($map: $font-weight, $key: light);
-    border-radius: 0.6rem;
+    border-radius: 0.5rem;
     font-size: 1rem;
     padding: 0.7rem 0.8rem;
     outline: none;
@@ -64,4 +69,18 @@
     font-family: "Poppins", sans-serif;
     color: map-get($map: $neutral, $key: very-dark-blue);
     opacity: 0.5;
+}
+
+#shorten-link-input-field.form-shorten-error {
+    border-color: map-get($map: $secondary, $key: red-color);
+}
+
+#shorten-link-input-field.form-shorten-error::placeholder {
+    color: map-get($map: $secondary, $key: red-color);
+}
+
+#short-link {
+    width: 100%;
+    flex-direction: column;
+    max-width: 100%;
 }

@@ -52,7 +52,7 @@
             <div class="form-cnt">
                 <h2 class="form-title">Log in and start sharing</h2>
                 <p class="form-description">Don't have an account? <a href="sign_up" class="main-link">Sign Up</a></p>
-                <form id="form-login" class="form-system" action="#" method="POST">
+                <form id="form-login" class="form-system" method="POST">
                     <div class="form-feedback"></div>
                     <label class="form-label" for="username">Email address or Username</label>
                     <input class="form-control" type="text" name="username" autocomplete="username email"
