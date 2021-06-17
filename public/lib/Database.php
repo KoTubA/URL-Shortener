@@ -345,7 +345,6 @@
                 return false;
             }
 
-
             return $data["number"];
         }
 
@@ -418,7 +417,6 @@
                 $this->error = "Something went wrong.";
                 return false;
             }
-
 
             return true;
         }
