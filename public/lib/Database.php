@@ -42,6 +42,28 @@
             return $errors;
         }
 
+        public function nameExist($name){
+            $this->error = "";
+            $sql = "SELECT * FROM users WHERE name = :name";
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindParam(":name", $name, PDO::PARAM_STR);
+
+            try {
+                $stmt->execute();
+            } catch(PDOException $e) {
+                $this->error = "Error: ".$e->getCode();
+                return 0;
+            }
+
+            if(!$stmt) {
+                $this->error = "Something went wrong.";
+                return 0;
+            }
+
+            $number_of_rows = $stmt->rowCount();
+            return $number_of_rows;
+        }
+
         public function mailExist($email){
             $this->error = "";
             $sql = "SELECT * FROM users WHERE email = :email";
