@@ -1,5 +1,47 @@
 @use '../abstracts/colors' as *;
 
+@media (max-width: 375px) {
+    .info-title-smaller {
+        font-size: 2rem;
+    }
+
+    .info-title {
+        font-size: 2.3rem;
+    }
+
+    .info-description {
+        font-size: 1rem;
+    }
+
+    .summary-title {
+        font-size: 1.4rem;
+    }
+
+    .pricing-card {
+        padding: 3rem 1.5rem;
+    }
+
+    .illustration-intro img {
+        width: 30rem;
+    }
+
+    .illustration-intro-smaller img {
+        width: 100%;
+    }
+
+    .advanced-statistics-title {
+        font-size: 1.6rem;
+    }
+
+    .statistics-card-title {
+        font-size: 1.3rem;
+    }
+
+    .resources-title {
+        font-size: 1.6rem;
+    }
+}
+
 @media (min-width: 400px) {
     .delete-link-notification {
         padding: 2rem 3rem;

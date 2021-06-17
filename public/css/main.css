@@ -176,7 +176,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
 
 .advanced-statistics-title {
   color: #35323e;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   padding-top: 0rem;
   margin-bottom: 0.8rem;
   margin-top: 0rem;
@@ -756,6 +756,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
 
 .comapre-table-row {
   padding: 0.2rem 0rem;
+  font-size: 1rem;
 }
 
 .summary-title {
@@ -978,7 +979,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
 .comapre-table-data-enterpise {
   padding: 2rem 0rem 1rem 0rem;
   position: relative;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 .resources {
@@ -1719,6 +1720,47 @@ a {
   font-size: 18px;
 }
 
+@media (max-width: 375px) {
+  .info-title-smaller {
+    font-size: 2rem;
+  }
+
+  .info-title {
+    font-size: 2.3rem;
+  }
+
+  .info-description {
+    font-size: 1rem;
+  }
+
+  .summary-title {
+    font-size: 1.4rem;
+  }
+
+  .pricing-card {
+    padding: 3rem 1.5rem;
+  }
+
+  .illustration-intro img {
+    width: 30rem;
+  }
+
+  .illustration-intro-smaller img {
+    width: 100%;
+  }
+
+  .advanced-statistics-title {
+    font-size: 1.6rem;
+  }
+
+  .statistics-card-title {
+    font-size: 1.3rem;
+  }
+
+  .resources-title {
+    font-size: 1.6rem;
+  }
+}
 @media (min-width: 400px) {
   .delete-link-notification {
     padding: 2rem 3rem;
