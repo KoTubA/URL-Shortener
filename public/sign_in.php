@@ -62,7 +62,7 @@
           <input class="form-control" type="password" name="password" autocomplete="current-password" autocorrect="off"
             autocapitalize="none">
           <span class="error-message data-error"></span>
-          <a class="main-link form-link" href="" target="_blank">Forgot password?</a>
+          <a class="main-link form-link" href="#">Forgot password?</a>
           <button class="main-btn form-btn">Log in</button>
         </form>
       </div>
