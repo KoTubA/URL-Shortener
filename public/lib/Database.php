@@ -375,4 +375,52 @@
             return true;
         }
 
+        public function checkLinkRedirect($short_url){
+            $this->error = "";
+            $sql = "SELECT * FROM urls WHERE short_url = :short_url";
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindParam(":short_url", $short_url, PDO::PARAM_STR);
+
+            try {
+                $stmt->execute();
+            } catch(PDOException $e) {
+                $this->error = "Error: ".$e->getCode();
+                return false;
+            }
+
+            if(!$stmt) {
+                $this->error = "Something went wrong.";
+                return false;
+            }
+
+            $number_of_rows = $stmt->rowCount();
+            if($number_of_rows===0) {
+                return false;
+            }
+
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $data;
+        }
+
+        public function incrementLinkRedirect($short_url){
+            $sql = "UPDATE urls SET clicks = clicks + 1 WHERE short_url = :short_url";
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindParam(":short_url", $short_url, PDO::PARAM_STR);
+
+            try {
+                $stmt->execute();
+            } catch(PDOException $e) {
+                $this->error = "Error: ".$e->getCode();
+                return false;
+            }
+
+            if(!$stmt) {
+                $this->error = "Something went wrong.";
+                return false;
+            }
+
+
+            return true;
+        }
+
     }

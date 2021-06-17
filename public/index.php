@@ -1,12 +1,12 @@
 <?php
 
+    require_once("controllers/redirect.php");
     session_start();
 
     if(isset($_SESSION['online'])) {
         header('Location: panel');
         exit();
     }
-
 ?>
 
 <!DOCTYPE html>

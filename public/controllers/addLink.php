@@ -77,7 +77,7 @@
         }
 
         if(!isset($_SESSION['online'])) {
-            $short_url = "https://".$_SERVER['HTTP_HOST']."/".$short_url;
+            $short_url = $_SERVER['HTTP_HOST']."/?u=".$short_url;
         }
 
         $r_errors["success"] = true;

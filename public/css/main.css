@@ -1223,6 +1223,7 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
 
 .error-description-cnt {
   align-items: flex-start;
+  align-self: flex-start;
   flex-direction: column;
 }
 
@@ -1240,6 +1241,10 @@ button, .panel, .panel-cnt, .panel-nav, .panel-nav-info, .panel-result-empty,
   line-height: 1.6;
   text-align: left;
   font-weight: 400;
+}
+
+.illustration-error-server-down {
+  padding: 1.5rem 0rem;
 }
 
 @keyframes spinner {
@@ -2361,7 +2366,7 @@ a {
   }
 
   .error-title {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
   }
 
   .error-description {
@@ -2621,7 +2626,7 @@ a {
   }
 
   .error-description {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }
 *,

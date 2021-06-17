@@ -46,15 +46,14 @@
                 $number_of_links++;
                 $number_of_total_clicks += $row["clicks"];
                 $hostname = $_SERVER['HTTP_HOST'];
-                $protocol = "https";
                 $data = $data. <<<EOD
                     <div class="panel-result-link-row">
-                        <div class="panel-result-link-data"><span>{$hostname}/{$row['short_url']}</span></div>
+                        <div class="panel-result-link-data"><span>{$hostname}/?u={$row['short_url']}</span></div>
                         <div class="panel-result-link-data"><span>{$row['long_url']}</span></div>
                         <div class="panel-result-link-data panel-result-link-date">{$row['creation_date']}</div>
                         <div class="panel-result-link-data panel-result-link-data-clicks">{$row['clicks']}</div>
                         <div class="panel-result-link-data">
-                            <button class="panel-result-link-data-btn panel-result-link-data-btn-cpy" data-clipboard-text="{$protocol}://{$hostname}/{$row['short_url']}">
+                            <button class="panel-result-link-data-btn panel-result-link-data-btn-cpy" data-clipboard-text="{$hostname}/?u={$row['short_url']}">
                                 <img src="images/copy.svg" alt="Copy">
                             </button>
                             <button class="panel-result-link-data-btn panel-result-link-data-btn-edit" data-original-url="{$row['original_url']}">
