@@ -17,6 +17,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="robots" content="index,follow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shortly is a URL shortener tool that shortens long links to more manageable and useable URLs.">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
