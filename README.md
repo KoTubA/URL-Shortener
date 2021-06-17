@@ -36,7 +36,7 @@ Create your own database graphically or with the command:
 CREATE DATABASE databasename;
 ```
 
-Import the `/setup/import.sql` file into the current DBMS.
+Import the `/setup/import.sql` file into the database you created.
 
 **3. Check the database connection configuration data:**
 
