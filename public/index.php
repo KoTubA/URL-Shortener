@@ -67,7 +67,7 @@
         <form id="short-link" class="form-system" action="#" method="POST">
           <h2 class="shorten-link-title">Shorten function section</h2>
           <div class="shorten-link-input-group">
-            <label class="shorten-link-label" for="shorten-link-input-field">Input link downbelow</label>
+            <label class="shorten-link-label" for="long-url">Input link downbelow</label>
             <input id="shorten-link-input-field" name="long-url" placeholder="Shorten a link here...">
             <span class="error-message error-message-absolute"></span>
           </div>
@@ -77,7 +77,7 @@
     </section>
     <section class="shorten-link-result">
       <div class="shorten-link-result-cnt">
-        <h2 class="shorten-link-title">Shorten result section</h2>
+        <h2 class="shorten-link-title shorten-link-title-result">Shorten result section</h2>
       </div>
     </section>
     <section class="advanced-statistics">

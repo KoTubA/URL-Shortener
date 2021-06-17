@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
         })
             .then((res) => res.json())
             .then((res) => {
-                console.log(res);
                 if (res.success) {
+                    shorten_link_input_field.value = "";
                     result_link_section(res.data["long-url"], res.data["short-url"]);
                 } else {
                     error_message.classList.add("error-message-visible");
@@ -79,7 +79,15 @@ document.addEventListener("DOMContentLoaded", () => {
         shorten_link_result_row.appendChild(shorten_link_result_copy);
 
         fragment.appendChild(shorten_link_result_row);
-        shorten_link_result_cnt.appendChild(fragment);
+
+        let header = document.querySelector(".shorten-link-title-result");
+        shorten_link_result_cnt.insertBefore(fragment, header.nextSibling);
+
+        let old_element = document.querySelectorAll(".shorten-link-result-row");
+        if (old_element.length > 3) {
+            old_element[old_element.length - 1].lastChild.firstChild.removeEventListener("click", copy_to_clipboard);
+            old_element[old_element.length - 1].remove();
+        }
     }
 
     function copy_to_clipboard() {
