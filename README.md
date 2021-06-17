@@ -36,6 +36,8 @@ Create your own database graphically or with the command:
 CREATE DATABASE databasename;
 ```
 
+Import the `/setup/import.sql` file into the current DBMS.
+
 **3. Check the database connection configuration data:**
 
 The `Database.php` file allows you to change the configuration of the connection with DB, its default configuration looks like this:
