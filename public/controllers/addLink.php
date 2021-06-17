@@ -14,7 +14,7 @@
 
         if(!empty($error)) {
             $r_errors["success"] = false;
-            $r_errors["error"] = $error;
+            $r_errors["data"]["error"] = $error;
             echo json_encode($r_errors);
             exit();
         }
