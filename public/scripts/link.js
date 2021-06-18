@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         ele.addEventListener("click", function () {
                             let data = this.parentElement.parentElement.children[2].innerText;
                             let l_url = this.parentElement.parentElement.children[1].innerText;
-                            let s_url = this.parentElement.parentElement.children[0].innerText.split("/");
+                            let s_url = this.parentElement.parentElement.children[0].innerText.split("=");
                             let o_url = this.getAttribute("data-original-url");
                             edit_link_section(data, l_url, s_url[1], o_url);
                         });
@@ -115,9 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         link_notification_form.id = form_id;
 
         //Add dynamic delete links
-        form_id === "delete-link"
-            ? link_notification_form.addEventListener("submit", delete_link)
-            : link_notification_form.addEventListener("submit", delete_all_links);
+        form_id === "delete-link" ? link_notification_form.addEventListener("submit", delete_link) : link_notification_form.addEventListener("submit", delete_all_links);
 
         let link_notification_title = document.createElement("h2");
         link_notification_title.classList.add("panel-title");
@@ -410,9 +408,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         for (var key in res.data) {
                             document.querySelector("." + key).classList.add("error-message-visible");
                             document.querySelector("." + key).previousElementSibling.classList.add("form-control-error");
-                            document
-                                .querySelector("." + key)
-                                .previousElementSibling.previousElementSibling.previousElementSibling.classList.add("form-label-error");
+                            document.querySelector("." + key).previousElementSibling.previousElementSibling.previousElementSibling.classList.add("form-label-error");
                             document.querySelector("." + key).innerText = res.data[key];
                         }
                     }
