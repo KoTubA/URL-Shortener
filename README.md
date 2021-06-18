@@ -4,7 +4,7 @@
 
 The application was created for the final project in the subject `"Hypertext languages and web development".` The project was inspired by the ["Frontend Mentor - URL shortening API landing page"](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G) challenge. The challenge itself has been expanded with additional pages [[gallery of subpages]](https://github.com/KoTubA/URL-Shortener/tree/main/design) and its own short link creation system, where registered users can add, edit and delete their own links.
 
-![Design preview for the Shortly URL shortening API coding challenge](./design/desktop-preview.jpg)
+<img src="./design/desktop-preview.jpg" alt="Design preview for the Shortly URL shortening API coding challenge" width="100%"/>
 
 ## Features
 
