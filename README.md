@@ -53,4 +53,4 @@ private $dbname = "shortly";
 
 ## Live demo
 
-Link to demo:
+Link to demo: https://shortly.5v.pl/
